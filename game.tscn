@@ -1,7 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://vyr58uj6ttm4"]
+[gd_scene load_steps=3 format=3 uid="uid://vyr58uj6ttm4"]
 
 [ext_resource type="PackedScene" uid="uid://b1nekjdd22fr" path="res://particles.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bs17o8jabrqto" path="res://game.gd" id="1_e2o6t"]
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_e2o6t")
 
 [node name="particles" parent="." instance=ExtResource("1_80nbo")]
+position = Vector2(751, 227)
+
+[node name="sliderAmount" type="HSlider" parent="."]
+offset_left = 50.0
+offset_top = 125.0
+offset_right = 182.0
+offset_bottom = 141.0
+scale = Vector2(1, 1.0085)
+
+[node name="sliderLifetime" type="HSlider" parent="."]
+offset_left = 51.0
+offset_top = 162.0
+offset_right = 183.0
+offset_bottom = 178.0
+scale = Vector2(1, 1.0085)
+
+[connection signal="value_changed" from="sliderAmount" to="." method="_on_slider_amount_value_changed"]
+[connection signal="value_changed" from="sliderLifetime" to="." method="_on_slider_lifetime_value_changed"]
