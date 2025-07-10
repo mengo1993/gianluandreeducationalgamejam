@@ -1,27 +1,221 @@
-[gd_scene load_steps=3 format=3 uid="uid://vyr58uj6ttm4"]
+[gd_scene load_steps=11 format=3 uid="uid://vyr58uj6ttm4"]
 
 [ext_resource type="PackedScene" uid="uid://b1nekjdd22fr" path="res://particles.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bs17o8jabrqto" path="res://game.gd" id="1_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://dlv8peo0eqtri" path="res://Sky.png" id="2_7jktm"]
+[ext_resource type="Texture2D" uid="uid://dtj0u25vb4cj5" path="res://star-Sheet.png" id="5_7jktm"]
+[ext_resource type="Texture2D" uid="uid://ciuexrkjm2si5" path="res://spaceman.png" id="5_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://bhrk67j77npv5" path="res://particella_star.png" id="6_ryrav"]
+[ext_resource type="FontFile" uid="uid://dcgp7s2bj44md" path="res://Minecraft.ttf" id="6_vef74"]
+[ext_resource type="AudioStream" uid="uid://bc7kkoscxcbhf" path="res://Jam1.wav" id="7_eow3j"]
+[ext_resource type="FontFile" uid="uid://ccesmqa00ae1l" path="res://Mleitod Personal Use Only.ttf" id="7_hve3p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryrav"]
+atlas = ExtResource("5_7jktm")
+region = Rect2(80, 32, 672, 16)
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_e2o6t")
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sfondo_Space" type="TextureRect" parent="Control"]
+modulate = Color(3.46541e-06, 0.638795, 0.875171, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7jktm")
+
+[node name="particles3" parent="Control" instance=ExtResource("1_80nbo")]
+texture_filter = 1
+position = Vector2(280, 523)
+scale = Vector2(7, 7)
+amount = 17
+texture = SubResource("AtlasTexture_ryrav")
+
+[node name="Spaceman" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1705.0
+offset_top = 815.0
+offset_right = 1745.0
+offset_bottom = 864.0
+scale = Vector2(5, 5)
+texture = ExtResource("5_j5wjh")
+
+[node name="Spaceman_Text" type="RichTextLabel" parent="Control/Spaceman"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.627
+anchor_top = -3.362
+anchor_right = 1.325
+anchor_bottom = 1.0
+offset_left = 43.28
+offset_top = 139.938
+offset_right = -37.8
+offset_bottom = -36.8
+theme_override_fonts/normal_font = ExtResource("6_vef74")
+theme_override_font_sizes/bold_italics_font_size = 0
+theme_override_font_sizes/italics_font_size = 0
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 9
+theme_override_font_sizes/bold_font_size = 0
+bbcode_enabled = true
+text = "
+Move the sliders to try out different audio [rainbow][wave]effects [/wave][/rainbow]!"
+horizontal_alignment = 1
+
+[node name="Effects_Text" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = -228.0
+offset_top = 18.0
+offset_right = -188.0
+offset_bottom = 58.0
+scale = Vector2(2, 2)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/Effects_Text"]
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 0
+offset_left = 127.0
+offset_top = 36.5
+offset_right = 501.0
+offset_bottom = 106.5
+theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[color=#9d6e4a]Effects"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Effects_Text"]
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 0
+offset_left = 137.5
+offset_top = 34.5
+offset_right = 497.5
+offset_bottom = 104.5
+theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[color=#7456da]Effects"
+horizontal_alignment = 1
+
+[node name="Container_V_ Effects" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 165.0
+offset_top = 212.0
+offset_right = 612.0
+offset_bottom = 71.0
+grow_vertical = 2
+
+[node name="Reverb_Text" type="Control" parent="Control/Container_V_ Effects"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/Container_V_ Effects/Reverb_Text"]
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 443.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[color=#9d6e4a]Reverb"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/Reverb_Text"]
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 439.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[color=#7456da]Reverb
+"
+
+[node name="sliderLifetime" type="HSlider" parent="Control/Container_V_ Effects"]
+custom_minimum_size = Vector2(200, 2)
+layout_mode = 2
+
+[node name="Delay_Text" type="Control" parent="Control/Container_V_ Effects"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/Container_V_ Effects/Delay_Text"]
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 443.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[color=#9d6e4a]Delay"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/Delay_Text"]
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 439.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[color=#7456da]Delay
+"
+
+[node name="sliderAmount" type="HSlider" parent="Control/Container_V_ Effects"]
+layout_mode = 2
+
 [node name="particles" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(751, 227)
+texture_filter = 1
+position = Vector2(968, 512)
+scale = Vector2(7, 7)
+amount = 17
+texture = SubResource("AtlasTexture_ryrav")
 
-[node name="sliderAmount" type="HSlider" parent="."]
-offset_left = 50.0
-offset_top = 125.0
-offset_right = 182.0
-offset_bottom = 141.0
-scale = Vector2(1, 1.0085)
+[node name="particles2" parent="." instance=ExtResource("1_80nbo")]
+visible = false
+texture_filter = 1
+position = Vector2(960, 512)
+scale = Vector2(7, 7)
+amount = 17
+texture = ExtResource("6_ryrav")
 
-[node name="sliderLifetime" type="HSlider" parent="."]
-offset_left = 51.0
-offset_top = 162.0
-offset_right = 183.0
-offset_bottom = 178.0
-scale = Vector2(1, 1.0085)
+[node name="Audio_Main" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_eow3j")
 
-[connection signal="value_changed" from="sliderAmount" to="." method="_on_slider_amount_value_changed"]
-[connection signal="value_changed" from="sliderLifetime" to="." method="_on_slider_lifetime_value_changed"]
+[connection signal="value_changed" from="Control/Container_V_ Effects/sliderLifetime" to="." method="_on_slider_lifetime_value_changed"]
+[connection signal="value_changed" from="Control/Container_V_ Effects/sliderAmount" to="." method="_on_slider_amount_value_changed"]
