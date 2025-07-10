@@ -159,11 +159,11 @@ text = "[color=#7456da]Low Pass Filter
 custom_minimum_size = Vector2(200, 2)
 layout_mode = 2
 
-[node name="Delay_Text2" type="Control" parent="Control/Container_V_ Effects"]
+[node name="Delay_Text" type="Control" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/Container_V_ Effects/Delay_Text2"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/Container_V_ Effects/Delay_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
@@ -177,7 +177,7 @@ theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
 text = "[color=#9d6e4a]Delay"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/Delay_Text2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/Delay_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
@@ -195,11 +195,11 @@ text = "[color=#7456da]Delay
 [node name="sliderAmount" type="HSlider" parent="Control/Container_V_ Effects"]
 layout_mode = 2
 
-[node name="Delay_Text" type="Control" parent="Control/Container_V_ Effects"]
+[node name="?_Text" type="Control" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/Container_V_ Effects/Delay_Text"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/Container_V_ Effects/?_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
@@ -211,9 +211,9 @@ offset_bottom = 73.0
 theme_override_fonts/normal_font = ExtResource("7_hve3p")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#9d6e4a]?"
+text = "[color=#9d6e4a]speed"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/Delay_Text"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/?_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
@@ -230,6 +230,43 @@ text = "[color=#7456da]?
 "
 
 [node name="sliderSpeed" type="HSlider" parent="Control/Container_V_ Effects"]
+layout_mode = 2
+
+[node name="??_Text" type="Control" parent="Control/Container_V_ Effects"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/Container_V_ Effects/??_Text"]
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 443.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[color=#9d6e4a]color"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/??_Text"]
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 439.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[color=#7456da]?
+
+"
+
+[node name="sliderColor" type="HSlider" parent="Control/Container_V_ Effects"]
 layout_mode = 2
 
 [node name="Audio_Main" type="AudioStreamPlayer2D" parent="."]
@@ -261,4 +298,5 @@ texture = SubResource("AtlasTexture_ryrav")
 
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderLifetime" to="." method="_on_slider_lifetime_value_changed"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderAmount" to="." method="_on_slider_amount_value_changed"]
-[connection signal="value_changed" from="Control/Container_V_ Effects/sliderSpeed" to="." method="_on_slider_somethin_value_changed"]
+[connection signal="value_changed" from="Control/Container_V_ Effects/sliderSpeed" to="." method="_on_slider_speed_value_changed"]
+[connection signal="value_changed" from="Control/Container_V_ Effects/sliderColor" to="." method="_on_slider_color_value_changed"]
