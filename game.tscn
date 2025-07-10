@@ -141,26 +141,25 @@ custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
 offset_left = 7.0
 offset_top = 3.0
-offset_right = 443.0
+offset_right = 568.0
 offset_bottom = 73.0
 theme_override_fonts/normal_font = ExtResource("7_hve3p")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#9d6e4a]Reverb"
+text = "[color=#9d6e4a]Low Pass Filter"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/Reverb_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 439.0
-offset_bottom = 73.0
+offset_left = 12.012
+offset_right = 589.012
+offset_bottom = 70.0
 theme_override_fonts/normal_font = ExtResource("7_hve3p")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#7456da]Reverb
+text = "[color=#7456da]Low Pass Filter
 "
 
 [node name="sliderLifetime" type="HSlider" parent="Control/Container_V_ Effects"]
