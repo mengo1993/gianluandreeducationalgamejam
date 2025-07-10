@@ -122,7 +122,6 @@ func edit_particles_hue(value: float) -> void:
 		material2.hue_variation_max = clamped_hue_variation
 
 ##### AUDIO
-
 func audio_filter_value_changed(value: float) -> void:
 	var master_bus_idx = AudioServer.get_bus_index("Master")
 
