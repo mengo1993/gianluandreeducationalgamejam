@@ -2,15 +2,16 @@ extends Node2D
 @onready var audio_main: AudioStreamPlayer2D = $Audio_Main
 
 const MAX_PARTICLES : int = 100
-const MAX_LIFETIME : int = 100
+const MAX_LIFETIME : int = 5
 # cambiare tra particles e particles2 per avere due effetti differenti 
 func _on_slider_amount_value_changed(value: float) -> void:
-	$particles.amount = clamp(int(value), 1, MAX_PARTICLES)
-	get_node("Control/particles3").amount = clamp(int(value), 1, MAX_PARTICLES)
-
-func _on_slider_lifetime_value_changed(value: float) -> void:
 	$particles.lifetime = clamp(int(value), 0.5, MAX_LIFETIME)
 	get_node("Control/particles3").lifetime = clamp(int(value), 0.5, MAX_LIFETIME)
+
+func _on_slider_lifetime_value_changed(value: float) -> void:
+	var val = 100 - value
+	$particles.amount = clamp(int(val), 1, MAX_PARTICLES)
+	get_node("Control/particles3").amount = clamp(int(val), 1, MAX_PARTICLES)
 	
 	
 # --- Low-Pass Filter control starts here ---
@@ -35,13 +36,15 @@ func _on_slider_lifetime_value_changed(value: float) -> void:
 			# Filter cutoff typically ranges from ~20 Hz to 20000 Hz (human hearing range).
 			# Adjust these values based on your slider's actual range and desired filter effect.
 			var min_slider_val = 0.5 # Your slider's minimum value
-			var max_slider_val = MAX_LIFETIME # Your slider's maximum value (ensure MAX_LIFETIME is defined)
+			
+			
+			var max_slider_val = 100 # Your slider's maximum value (ensure MAX_LIFETIME is defined)
 
 			var min_cutoff_freq = 200.0   # Lowest frequency for the filter (e.g., very muffled)
 			var max_cutoff_freq = 10000.0 # Highest frequency (full open, no filtering)
 
 			# Map the slider's value to the desired frequency range
-			var new_cutoff_frequency = remap(value, min_slider_val, max_slider_val, min_cutoff_freq, max_cutoff_freq)
+			var new_cutoff_frequency = remap(max_slider_val - value, min_slider_val, max_slider_val, min_cutoff_freq, max_cutoff_freq)
 
 			# Apply the new cutoff frequency to the low-pass filter
 			# The property is 'cutoff_hz' for the frequency
