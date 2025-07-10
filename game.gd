@@ -52,7 +52,29 @@ func _ready() -> void:
 	)
 
 
-func _on_slider_somethin_value_changed(value: float) -> void:
+func _on_slider_speed_value_changed(value: float) -> void:
+	edit_particles_speed(value)
+	audio_filter_value_changed(value)
+
+
+
+func _on_slider_amount_value_changed(value: float) -> void:
+	edit_particles_amount(value)
+	# audio function
+
+
+func _on_slider_lifetime_value_changed(value: float) -> void:
+	edit_particles_lifetime(value)
+	# audio function
+
+
+# --- Slider for Hue Variation ---
+func _on_slider_color_value_changed(value: float) -> void:
+	edit_particles_hue(value)
+	# audio function
+
+##### PARTICLES
+func edit_particles_speed(value : float) -> void:
 	var clamped_value : float = clamp(value, MIN_SPEED, MAX_SPEED)
 
 	var particles1 := $ParticlesManager/Particles as GPUParticles2D
@@ -68,38 +90,16 @@ func _on_slider_somethin_value_changed(value: float) -> void:
 		material2.initial_velocity_min = clamped_value
 		material2.initial_velocity_max = clamped_value
 
-
-func _on_slider_amount_value_changed(value: float) -> void:
+func edit_particles_amount(value: float) -> void:
+	$ParticlesManager/Particles.amount = clamp(int(value), MIN_PARTICLES, MAX_PARTICLES)
+	$ParticlesManager/Particles3.amount = clamp(int(value), MIN_PARTICLES, MAX_PARTICLES)
+	
+func edit_particles_lifetime(value: float) -> void:
 	$ParticlesManager/Particles.lifetime = clamp(value, MIN_LIFETIME, MAX_LIFETIME)
 	$ParticlesManager/Particles3.lifetime = clamp(value, MIN_LIFETIME, MAX_LIFETIME)
 
-
-func _on_slider_lifetime_value_changed(value: float) -> void:
-	$ParticlesManager/Particles.amount = clamp(int(value), MIN_PARTICLES, MAX_PARTICLES)
-	$ParticlesManager/Particles3.amount = clamp(int(value), MIN_PARTICLES, MAX_PARTICLES)
-
-# --- Low-Pass Filter control starts here ---
-
-func _on_slider_audio_filter_value_changed(value: float) -> void:
-	var master_bus_idx = AudioServer.get_bus_index("Master")
-
-	if master_bus_idx != -1:
-		var filter_effect = AudioServer.get_bus_effect(master_bus_idx, 0) as AudioEffectFilter
-
-		if filter_effect:
-			var min_slider_val = 0.0
-			var max_slider_val = 100.0
-
-			var min_cutoff_freq = 200.0
-			var max_cutoff_freq = 10000.0
-
-			var new_cutoff_frequency = remap(value, min_slider_val, max_slider_val, min_cutoff_freq, max_cutoff_freq)
-
-			filter_effect.cutoff_hz = clampf(new_cutoff_frequency, min_cutoff_freq, max_cutoff_freq)
-
-# --- Slider for Hue Variation ---
-func _on_slider_color_value_changed(value: float) -> void:
-	# Assuming your "color" slider also goes from 0.0 to 100.0
+func edit_particles_hue(value: float) -> void:
+		# Assuming your "color" slider also goes from 0.0 to 100.0
 	var min_slider_val = 0.0
 	var max_slider_val = 100.0
 
@@ -120,3 +120,22 @@ func _on_slider_color_value_changed(value: float) -> void:
 		var material2 := particles2.process_material as ParticleProcessMaterial
 		material2.hue_variation_min = MIN_HUE_VARIATION
 		material2.hue_variation_max = clamped_hue_variation
+
+##### AUDIO
+
+func audio_filter_value_changed(value: float) -> void:
+	var master_bus_idx = AudioServer.get_bus_index("Master")
+
+	if master_bus_idx != -1:
+		var filter_effect = AudioServer.get_bus_effect(master_bus_idx, 0) as AudioEffectFilter
+
+		if filter_effect:
+			var min_slider_val = 0.0
+			var max_slider_val = 100.0
+
+			var min_cutoff_freq = 200.0
+			var max_cutoff_freq = 10000.0
+
+			var new_cutoff_frequency = remap(value, min_slider_val, max_slider_val, min_cutoff_freq, max_cutoff_freq)
+
+			filter_effect.cutoff_hz = clampf(new_cutoff_frequency, min_cutoff_freq, max_cutoff_freq)
