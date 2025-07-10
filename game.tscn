@@ -48,12 +48,13 @@ texture = SubResource("AtlasTexture_ryrav")
 [node name="Spaceman" type="TextureRect" parent="Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 1705.0
-offset_top = 815.0
-offset_right = 1745.0
-offset_bottom = 864.0
+offset_left = 1716.0
+offset_top = 819.0
+offset_right = 1756.0
+offset_bottom = 868.0
 scale = Vector2(5, 5)
 texture = ExtResource("5_j5wjh")
+flip_h = true
 
 [node name="Spaceman_Text" type="RichTextLabel" parent="Control/Spaceman"]
 texture_filter = 1
@@ -63,10 +64,10 @@ anchor_left = -3.627
 anchor_top = -3.362
 anchor_right = 1.325
 anchor_bottom = 1.0
-offset_left = 43.28
-offset_top = 139.938
-offset_right = -37.8
-offset_bottom = -36.8
+offset_left = 36.28
+offset_top = 140.338
+offset_right = -44.8
+offset_bottom = -36.4
 theme_override_fonts/normal_font = ExtResource("6_vef74")
 theme_override_font_sizes/bold_italics_font_size = 0
 theme_override_font_sizes/italics_font_size = 0
