@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://bx5c5udgxmlx3"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bx5c5udgxmlx3"]
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_j3pel"]
 resource_name = "LowPassFilter"
@@ -6,6 +6,11 @@ cutoff_hz = 10000.0
 resonance = 1.0
 db = 1
 
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
+resource_name = "Distortion"
+
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectLowPassFilter_j3pel")
 bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/0/effect/1/enabled = true
