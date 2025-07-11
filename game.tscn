@@ -20,7 +20,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryrav"]
 atlas = ExtResource("5_7jktm")
-region = Rect2(80, 32, 672, 16)
+region = Rect2(80, 32, 689.5, 13.75)
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_e2o6t")
@@ -38,13 +38,14 @@ theme = ExtResource("2_hve3p")
 
 [node name="Sfondo_Space" type="TextureRect" parent="Control"]
 modulate = Color(3.46541e-06, 0.638795, 0.875171, 1)
+z_index = -2
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1280.0
-offset_bottom = -720.0
+offset_right = -1279.0
+offset_bottom = -719.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7jktm")
@@ -79,9 +80,9 @@ theme_override_font_sizes/mono_font_size = 0
 theme_override_font_sizes/normal_font_size = 9
 theme_override_font_sizes/bold_font_size = 0
 bbcode_enabled = true
-text = "Hi! my name is [color=#008ce0]ASTRO[/color].
+text = "Hi! My name is [color=#008ce0]ASTRO[/color].
 
-Move the sliders to explore the worlds of  [rainbow][wave] audioeffects [/wave][/rainbow]!"
+Move the sliders to explore the worlds of  [rainbow][wave] audio effects [/wave][/rainbow]!"
 horizontal_alignment = 1
 
 [node name="Container_V_ Effects" type="VBoxContainer" parent="Control"]
@@ -309,6 +310,7 @@ amount = 17
 texture = ExtResource("6_ryrav")
 
 [node name="Particles3" parent="ParticlesManager" instance=ExtResource("1_80nbo")]
+z_index = 1
 texture_filter = 1
 position = Vector2(521, 165)
 scale = Vector2(7, 7)
@@ -316,6 +318,7 @@ amount = 17
 texture = SubResource("AtlasTexture_ryrav")
 
 [node name="Particles" parent="ParticlesManager" instance=ExtResource("1_80nbo")]
+z_index = -1
 texture_filter = 1
 position = Vector2(198, 135)
 scale = Vector2(7, 7)
@@ -354,7 +357,7 @@ position = Vector2(203, 173)
 texture = ExtResource("13_215e1")
 
 [node name="Saturn" type="Sprite2D" parent="Planets/Other_planets"]
-position = Vector2(202, 119)
+position = Vector2(203, 121)
 rotation = -0.584685
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("9_7sc4i")
