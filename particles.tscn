@@ -4,7 +4,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1nvrg"]
 atlas = ExtResource("1_xnif8")
-region = Rect2(80, 32, 672, 16)
+region = Rect2(80, 32, 682.5, 16)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
 particle_flag_disable_z = true
