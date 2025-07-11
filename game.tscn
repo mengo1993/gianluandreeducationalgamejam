@@ -1,14 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://vyr58uj6ttm4"]
+[gd_scene load_steps=16 format=3 uid="uid://vyr58uj6ttm4"]
 
 [ext_resource type="PackedScene" uid="uid://b1nekjdd22fr" path="res://particles.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bs17o8jabrqto" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://dlv8peo0eqtri" path="res://Sky.png" id="2_7jktm"]
+[ext_resource type="Theme" uid="uid://cb6cfuisv1qi8" path="res://Text_astro.tres" id="2_hve3p"]
+[ext_resource type="Texture2D" uid="uid://b3puf3jejvaro" path="res://spaceman_2.png" id="3_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dtj0u25vb4cj5" path="res://star-Sheet.png" id="5_7jktm"]
-[ext_resource type="Texture2D" uid="uid://ciuexrkjm2si5" path="res://spaceman.png" id="5_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://cjgdhww3ehfd4" path="res://earth_slider.png" id="6_215e1"]
+[ext_resource type="Theme" uid="uid://tdokecx2vxsu" path="res://theme_effects.tres" id="6_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://bhrk67j77npv5" path="res://particella_star.png" id="6_ryrav"]
 [ext_resource type="FontFile" uid="uid://dcgp7s2bj44md" path="res://Minecraft.ttf" id="6_vef74"]
-[ext_resource type="FontFile" uid="uid://ccesmqa00ae1l" path="res://Mleitod Personal Use Only.ttf" id="7_hve3p"]
+[ext_resource type="Theme" uid="uid://5bojobj2xa28" path="res://Slider_theme.tres" id="7_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://ugw3xa6sq1nu" path="res://jupiter.png" id="9_7sc4i"]
 [ext_resource type="AudioStream" uid="uid://bbu52caa8ogh4" path="res://Jam_loop_1.wav" id="9_vef74"]
+[ext_resource type="Texture2D" uid="uid://cpweqp1nauskj" path="res://mars.png" id="13_215e1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryrav"]
 atlas = ExtResource("5_7jktm")
@@ -26,6 +31,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_hve3p")
 
 [node name="Sfondo_Space" type="TextureRect" parent="Control"]
 modulate = Color(3.46541e-06, 0.638795, 0.875171, 1)
@@ -43,12 +49,12 @@ texture = ExtResource("2_7jktm")
 [node name="Spaceman" type="TextureRect" parent="Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 576.0
-offset_top = 279.0
-offset_right = 616.0
-offset_bottom = 328.0
+offset_left = 568.0
+offset_top = 271.0
+offset_right = 608.0
+offset_bottom = 320.0
 scale = Vector2(1.667, 1.667)
-texture = ExtResource("5_j5wjh")
+texture = ExtResource("3_lc2xo")
 flip_h = true
 
 [node name="Spaceman_Text" type="RichTextLabel" parent="Control/Spaceman"]
@@ -59,10 +65,10 @@ anchor_left = -3.627
 anchor_top = -3.362
 anchor_right = 1.325
 anchor_bottom = 1.0
-offset_left = 36.28
-offset_top = 140.338
-offset_right = -44.8
-offset_bottom = -36.4
+offset_left = 57.4975
+offset_top = 129.345
+offset_right = -23.5825
+offset_bottom = -34.3929
 theme_override_fonts/normal_font = ExtResource("6_vef74")
 theme_override_font_sizes/bold_italics_font_size = 0
 theme_override_font_sizes/italics_font_size = 0
@@ -70,46 +76,9 @@ theme_override_font_sizes/mono_font_size = 0
 theme_override_font_sizes/normal_font_size = 9
 theme_override_font_sizes/bold_font_size = 0
 bbcode_enabled = true
-text = "
-Move the sliders to try out different audio [rainbow][wave]effects [/wave][/rainbow]!"
-horizontal_alignment = 1
+text = "Hi! my name is [color=#008ce0]ASTRO[/color].
 
-[node name="Effects_Text" type="Control" parent="Control"]
-anchors_preset = 0
-offset_left = -89.0
-offset_top = 6.0
-offset_right = -49.0
-offset_bottom = 46.0
-scale = Vector2(0.667, 0.667)
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/Effects_Text"]
-texture_filter = 1
-texture_repeat = 1
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 0
-offset_left = 127.0
-offset_top = 36.5
-offset_right = 501.0
-offset_bottom = 106.5
-theme_override_fonts/normal_font = ExtResource("7_hve3p")
-theme_override_font_sizes/normal_font_size = 66
-bbcode_enabled = true
-text = "[color=#9d6e4a]Effects"
-horizontal_alignment = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Effects_Text"]
-texture_filter = 1
-texture_repeat = 1
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 0
-offset_left = 137.5
-offset_top = 34.5
-offset_right = 497.5
-offset_bottom = 104.5
-theme_override_fonts/normal_font = ExtResource("7_hve3p")
-theme_override_font_sizes/normal_font_size = 66
-bbcode_enabled = true
-text = "[color=#7456da]Effects"
+Move the sliders to explore the worlds of  [rainbow][wave] audioeffects [/wave][/rainbow]!"
 horizontal_alignment = 1
 
 [node name="Container_V_ Effects" type="VBoxContainer" parent="Control"]
@@ -117,9 +86,9 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 26.0
-offset_top = 81.0
-offset_right = 473.0
-offset_bottom = -60.0
+offset_top = 30.0
+offset_right = 627.0
+offset_bottom = -120.0
 grow_vertical = 2
 scale = Vector2(0.333, 0.333)
 
@@ -136,7 +105,7 @@ offset_left = 7.0
 offset_top = 3.0
 offset_right = 568.0
 offset_bottom = 73.0
-theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
 text = "[color=#9d6e4a]Low Pass Filter"
@@ -149,15 +118,17 @@ layout_mode = 0
 offset_left = 12.012
 offset_right = 589.012
 offset_bottom = 70.0
-theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
 text = "[color=#7456da]Low Pass Filter
 "
 
 [node name="sliderLifetime" type="HSlider" parent="Control/Container_V_ Effects"]
-custom_minimum_size = Vector2(200, 2)
+custom_minimum_size = Vector2(400, 75)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_mfdv2")
 
 [node name="Delay_Text" type="Control" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(0, 75)
@@ -172,7 +143,7 @@ offset_left = 7.0
 offset_top = 3.0
 offset_right = 443.0
 offset_bottom = 73.0
-theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
 text = "[color=#9d6e4a]Delay"
@@ -182,18 +153,21 @@ texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 439.0
-offset_bottom = 73.0
-theme_override_fonts/normal_font = ExtResource("7_hve3p")
+offset_left = 12.012
+offset_top = 0.0991118
+offset_right = 448.012
+offset_bottom = 70.0991
+theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
 text = "[color=#7456da]Delay
 "
 
 [node name="sliderAmount" type="HSlider" parent="Control/Container_V_ Effects"]
+custom_minimum_size = Vector2(400, 75)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_mfdv2")
 
 [node name="?_Text" type="Control" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(0, 75)
@@ -208,29 +182,31 @@ offset_left = 7.0
 offset_top = 3.0
 offset_right = 443.0
 offset_bottom = 73.0
-theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#9d6e4a]speed"
+text = "[color=#9d6e4a]Speed"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/?_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 439.0
-offset_bottom = 73.0
-theme_override_fonts/normal_font = ExtResource("7_hve3p")
+offset_left = 12.012
+offset_top = 0.198248
+offset_right = 448.012
+offset_bottom = 70.1982
+theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#7456da]?
-
+text = "[color=#7456da]Speed
 "
 
 [node name="sliderSpeed" type="HSlider" parent="Control/Container_V_ Effects"]
+custom_minimum_size = Vector2(400, 75)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_mfdv2")
 
 [node name="??_Text" type="Control" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(0, 75)
@@ -245,29 +221,31 @@ offset_left = 7.0
 offset_top = 3.0
 offset_right = 443.0
 offset_bottom = 73.0
-theme_override_fonts/normal_font = ExtResource("7_hve3p")
+theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#9d6e4a]color"
+text = "[color=#9d6e4a]Color"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/??_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 439.0
-offset_bottom = 73.0
-theme_override_fonts/normal_font = ExtResource("7_hve3p")
+offset_left = 12.012
+offset_top = 0.297316
+offset_right = 448.012
+offset_bottom = 70.2973
+theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#7456da]?
-
+text = "[color=#7456da]Color
 "
 
 [node name="sliderColor" type="HSlider" parent="Control/Container_V_ Effects"]
+custom_minimum_size = Vector2(400, 75)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_mfdv2")
 
 [node name="Audio_Main" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_vef74")
@@ -291,10 +269,41 @@ texture = SubResource("AtlasTexture_ryrav")
 
 [node name="Particles" parent="ParticlesManager" instance=ExtResource("1_80nbo")]
 texture_filter = 1
-position = Vector2(198, 189)
+position = Vector2(198, 135)
 scale = Vector2(7, 7)
 amount = 17
 texture = SubResource("AtlasTexture_ryrav")
+
+[node name="Planets" type="Node2D" parent="."]
+
+[node name="Earth_group" type="CanvasGroup" parent="Planets"]
+
+[node name="Earth" type="Sprite2D" parent="Planets/Earth_group"]
+position = Vector2(52, 69)
+texture = ExtResource("6_215e1")
+
+[node name="Earth2" type="Sprite2D" parent="Planets/Earth_group"]
+position = Vector2(52, 121)
+texture = ExtResource("6_215e1")
+
+[node name="Earth3" type="Sprite2D" parent="Planets/Earth_group"]
+position = Vector2(52, 174)
+texture = ExtResource("6_215e1")
+
+[node name="Earth4" type="Sprite2D" parent="Planets/Earth_group"]
+position = Vector2(52, 226)
+texture = ExtResource("6_215e1")
+
+[node name="Other_planets" type="CanvasGroup" parent="Planets"]
+
+[node name="Mars" type="Sprite2D" parent="Planets/Other_planets"]
+position = Vector2(198, 174)
+texture = ExtResource("13_215e1")
+
+[node name="Jupiter" type="Sprite2D" parent="Planets/Other_planets"]
+position = Vector2(207, 119)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("9_7sc4i")
 
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderLifetime" to="." method="_on_slider_lifetime_value_changed"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderAmount" to="." method="_on_slider_amount_value_changed"]
