@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://vyr58uj6ttm4"]
+[gd_scene load_steps=20 format=3 uid="uid://vyr58uj6ttm4"]
 
 [ext_resource type="PackedScene" uid="uid://b1nekjdd22fr" path="res://particles.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bs17o8jabrqto" path="res://game.gd" id="1_e2o6t"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bfb6gnb87t0cu" path="res://saturn.png" id="15_e8heu"]
 [ext_resource type="Texture2D" uid="uid://jmhv8ii7ncn5" path="res://moon.png" id="16_rvswv"]
 [ext_resource type="Texture2D" uid="uid://d2488rvosqpt5" path="res://neptune.png" id="17_boyg6"]
+[ext_resource type="Texture2D" uid="uid://5haqr8m5qctg" path="res://pamplet2.png" id="18_rvswv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryrav"]
 atlas = ExtResource("5_7jktm")
@@ -24,6 +25,73 @@ region = Rect2(80, 32, 689.5, 13.75)
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_e2o6t")
+
+[node name="Pamplets" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 361.0
+
+[node name="TextureRect" type="TextureRect" parent="Pamplets"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.478
+anchor_right = 1.0
+anchor_bottom = 0.526
+offset_left = 0.0799866
+offset_top = 9.0
+offset_right = 3.0
+offset_bottom = 20.114
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("18_rvswv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pamplets/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.2222
+offset_top = 26.6667
+offset_right = -35.7778
+offset_bottom = -8.33333
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pamplets/TextureRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Pamplets/TextureRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("13_215e1")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pamplets/TextureRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_hve3p")
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "[color=#7456da]LOW PASS - MARS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Pamplets/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_hve3p")
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "
+[color=#7456da] A low-pass filter allows low-frequency signals to pass through while blocking high-frequency ones. "
+horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
