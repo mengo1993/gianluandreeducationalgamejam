@@ -11,6 +11,7 @@ const MAX_LIFETIME : float = 8.0
 const MIN_SPEED : float = 1.0
 const MAX_START_SPEED : float = 10.0
 const MAX_SPEED : float = 200.0
+const MAX_RADIAL_SPEED : float = 10.0
 
 # Constants for Hue Variation Range (using -1.0 to 1.0 as the full range)
 # Adjust these based on how much hue variation you want to allow.
@@ -78,6 +79,10 @@ func _on_slider_lifetime_value_changed(value: float) -> void:
 func _on_slider_color_value_changed(value: float) -> void:
 	edit_particles_hue(value)
 	# audio function
+	
+func _on_slider_radial_speed_value_changed(value: float) -> void:
+	edit_particles_radial_speed(value)
+	# audio
 
 ##### PARTICLES
 func edit_particles_speed(value : float) -> void:
@@ -94,6 +99,21 @@ func edit_particles_speed(value : float) -> void:
 		var material2 := particles2.process_material as ParticleProcessMaterial
 		material2.initial_velocity_min = -clamped_value
 		material2.initial_velocity_max = -MIN_SPEED
+
+
+func edit_particles_radial_speed(value: float) -> void:
+	var radial_speed : float = lerp(0.0, MAX_RADIAL_SPEED, value)
+
+	var particles1 := $ParticlesManager/Particles as GPUParticles2D
+	var particles2 := $ParticlesManager/Particles3 as GPUParticles2D
+
+	if particles1 and particles1.process_material is ParticleProcessMaterial:
+		var material1 := particles1.process_material as ParticleProcessMaterial
+		material1.radial_velocity_max = radial_speed
+
+	if particles2 and particles2.process_material is ParticleProcessMaterial:
+		var material2 := particles2.process_material as ParticleProcessMaterial
+		material2.radial_velocity_max = radial_speed
 
 func edit_particles_amount(value: float) -> void:
 	$ParticlesManager/Particles.amount = clamp(int(value), MIN_PARTICLES, MAX_PARTICLES)

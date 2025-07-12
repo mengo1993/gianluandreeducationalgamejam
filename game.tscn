@@ -363,7 +363,7 @@ bbcode_enabled = true
 text = "[color=#7456da]Effetto
 "
 
-[node name="sliderColor2" type="HSlider" parent="Control/Container_V_ Effects"]
+[node name="sliderRadialSpeed" type="HSlider" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(400, 75)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -453,4 +453,4 @@ texture = ExtResource("17_boyg6")
 [connection signal="mouse_exited" from="Control/Container_V_ Effects/sliderSpeed" to="." method="_on_slider_speed_mouse_exited"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderSpeed" to="." method="_on_slider_speed_value_changed"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderColor" to="." method="_on_slider_color_value_changed"]
-[connection signal="value_changed" from="Control/Container_V_ Effects/sliderColor2" to="." method="_on_slider_color_value_changed"]
+[connection signal="value_changed" from="Control/Container_V_ Effects/sliderRadialSpeed" to="." method="_on_slider_radial_speed_value_changed"]
