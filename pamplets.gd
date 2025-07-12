@@ -5,6 +5,7 @@ var _pending_focus_id: int = 0
 
 const DURATION_OF_FADE : float = 0.4
 const TIME_BETWEEN_SHOWING : float = 0.2
+const TIME_BEFORE_FADE_OUT : float = 0.2
 
 func focus(texture: Texture2D, title: String, description: String) -> void:
 	# Start tracking a unique focus attempt
@@ -33,6 +34,12 @@ func focus(texture: Texture2D, title: String, description: String) -> void:
 
 func fade_out() -> void:
 	_is_mouse_over = false
+	
+	await get_tree().create_timer(TIME_BEFORE_FADE_OUT).timeout  # Delay before fading out
+
+	# Cancel fade-out if mouse re-entered during the delay
+	if _is_mouse_over:
+		return
 
 	modulate.a = 1.0
 	var tween = create_tween()
