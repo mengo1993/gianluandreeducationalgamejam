@@ -6,7 +6,6 @@
 [ext_resource type="Theme" uid="uid://cb6cfuisv1qi8" path="res://Text_astro.tres" id="3_blmvg"]
 
 [node name="Pamplets" type="Control"]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0

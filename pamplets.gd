@@ -1,6 +1,8 @@
 extends Control
 const DURATION_OF_FADE : float = 0.3
 
+func _ready() -> void:
+	modulate.a = 0.0
 
 func focus(texture : Texture2D, title : String, description : String) -> void:
 	$TextureRect/VBoxContainer/HBoxContainer/TextureRect.texture = texture
