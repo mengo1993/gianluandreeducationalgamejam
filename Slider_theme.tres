@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://5bojobj2xa28"]
 
-[ext_resource type="Texture2D" uid="uid://bue4b6825g4vj" path="res://spaceship_slider.png" id="1_h00ic"]
-[ext_resource type="Texture2D" uid="uid://b4j6yi7akw2yy" path="res://spaceship_b_w.png" id="2_k5t3r"]
-[ext_resource type="Texture2D" uid="uid://c5h7yk48mr606" path="res://barra_slider_colorata.png" id="3_4krrs"]
+[ext_resource type="Texture2D" uid="uid://cldobhnu6i4uj" path="res://spaceship_slider.png" id="1_h00ic"]
+[ext_resource type="Texture2D" uid="uid://bskw6u51khhyi" path="res://spaceship_b_w.png" id="2_k5t3r"]
+[ext_resource type="Texture2D" uid="uid://bi7qctdqcx6sh" path="res://barra_slider_colorata.png" id="3_4krrs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80cx4"]
 atlas = ExtResource("1_h00ic")

@@ -6,10 +6,11 @@ extends Node2D
 # Your defined constants for particles (remains unchanged)
 const MIN_PARTICLES : int = 8
 const MAX_PARTICLES : int = 100
-const MIN_LIFETIME : float = 0.5
-const MAX_LIFETIME : float = 5.0
-const MIN_SPEED : float = 30.0
-const MAX_SPEED : float = 500.0
+const MIN_LIFETIME : float = 2.0
+const MAX_LIFETIME : float = 8.0
+const MIN_SPEED : float = 1.0
+const MAX_START_SPEED : float = 10.0
+const MAX_SPEED : float = 200.0
 
 # Constants for Hue Variation Range (using -1.0 to 1.0 as the full range)
 # Adjust these based on how much hue variation you want to allow.
@@ -29,7 +30,7 @@ func _ready() -> void:
 		if particles1.process_material is ParticleProcessMaterial:
 			var material1 := particles1.process_material as ParticleProcessMaterial
 			material1.initial_velocity_min = MIN_SPEED
-			material1.initial_velocity_max = MIN_SPEED
+			material1.initial_velocity_max = MAX_START_SPEED
 			# Initialize Hue Variation using the correct property names
 			material1.hue_variation_min = MIN_HUE_VARIATION
 			material1.hue_variation_max = MIN_HUE_VARIATION # Start with no variation
@@ -38,12 +39,15 @@ func _ready() -> void:
 		particles2.amount = MIN_PARTICLES
 		particles2.lifetime = MIN_LIFETIME
 		if particles2.process_material is ParticleProcessMaterial:
-			var material2 := particles2.process_material as ParticleProcessMaterial
-			material2.initial_velocity_min = MIN_SPEED
-			material2.initial_velocity_max = MIN_SPEED
+			var material2 := particles2.process_material.duplicate() as ParticleProcessMaterial
+			material2.initial_velocity_min = - MIN_SPEED
+			material2.initial_velocity_max = - MAX_START_SPEED
 			# Initialize Hue Variation using the correct property names
 			material2.hue_variation_min = MIN_HUE_VARIATION
 			material2.hue_variation_max = MIN_HUE_VARIATION
+			particles2.process_material = material2
+
+		
 
 
 	# --- Audio setup ---
@@ -84,13 +88,12 @@ func edit_particles_speed(value : float) -> void:
 
 	if particles1 and particles1.process_material is ParticleProcessMaterial:
 		var material1 := particles1.process_material as ParticleProcessMaterial
-		material1.initial_velocity_min = clamped_value
 		material1.initial_velocity_max = clamped_value
 
 	if particles2 and particles2.process_material is ParticleProcessMaterial:
 		var material2 := particles2.process_material as ParticleProcessMaterial
-		material2.initial_velocity_min = clamped_value
-		material2.initial_velocity_max = clamped_value
+		material2.initial_velocity_min = -clamped_value
+		material2.initial_velocity_max = -MIN_SPEED
 
 func edit_particles_amount(value: float) -> void:
 	$ParticlesManager/Particles.amount = clamp(int(value), MIN_PARTICLES, MAX_PARTICLES)

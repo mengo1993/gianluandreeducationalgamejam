@@ -4,20 +4,20 @@
 [ext_resource type="Script" uid="uid://bs17o8jabrqto" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://dlv8peo0eqtri" path="res://Sky.png" id="2_7jktm"]
 [ext_resource type="Theme" uid="uid://cb6cfuisv1qi8" path="res://Text_astro.tres" id="2_hve3p"]
-[ext_resource type="Texture2D" uid="uid://b3puf3jejvaro" path="res://spaceman_2.png" id="3_lc2xo"]
+[ext_resource type="Texture2D" uid="uid://d2wj13aym5ime" path="res://spaceman_2.png" id="3_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dtj0u25vb4cj5" path="res://star-Sheet.png" id="5_7jktm"]
-[ext_resource type="Texture2D" uid="uid://cjgdhww3ehfd4" path="res://earth_slider.png" id="6_215e1"]
+[ext_resource type="Texture2D" uid="uid://dwckgr4lepx1y" path="res://earth_slider.png" id="6_215e1"]
 [ext_resource type="Theme" uid="uid://tdokecx2vxsu" path="res://theme_effects.tres" id="6_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://bhrk67j77npv5" path="res://particella_star.png" id="6_ryrav"]
 [ext_resource type="FontFile" uid="uid://dcgp7s2bj44md" path="res://Minecraft.ttf" id="6_vef74"]
 [ext_resource type="Theme" uid="uid://5bojobj2xa28" path="res://Slider_theme.tres" id="7_mfdv2"]
-[ext_resource type="Texture2D" uid="uid://ugw3xa6sq1nu" path="res://jupiter.png" id="9_7sc4i"]
+[ext_resource type="Texture2D" uid="uid://cfydkfxui673d" path="res://jupiter.png" id="9_7sc4i"]
 [ext_resource type="AudioStream" uid="uid://bbu52caa8ogh4" path="res://Jam_loop_1.wav" id="9_vef74"]
-[ext_resource type="Texture2D" uid="uid://cpweqp1nauskj" path="res://mars.png" id="13_215e1"]
-[ext_resource type="Texture2D" uid="uid://bfb6gnb87t0cu" path="res://saturn.png" id="15_e8heu"]
-[ext_resource type="Texture2D" uid="uid://jmhv8ii7ncn5" path="res://moon.png" id="16_rvswv"]
-[ext_resource type="Texture2D" uid="uid://d2488rvosqpt5" path="res://neptune.png" id="17_boyg6"]
-[ext_resource type="Texture2D" uid="uid://5haqr8m5qctg" path="res://pamplet2.png" id="18_rvswv"]
+[ext_resource type="Texture2D" uid="uid://n7crt831k17p" path="res://mars.png" id="13_215e1"]
+[ext_resource type="Texture2D" uid="uid://cmtgpd5p07oav" path="res://saturn.png" id="15_e8heu"]
+[ext_resource type="Texture2D" uid="uid://dcusmnmddgg1r" path="res://moon.png" id="16_rvswv"]
+[ext_resource type="Texture2D" uid="uid://bm4cs52sumrnt" path="res://neptune.png" id="17_boyg6"]
+[ext_resource type="Texture2D" uid="uid://d2h3bn0k8pbjo" path="res://pamplet2.png" id="18_rvswv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryrav"]
 atlas = ExtResource("5_7jktm")
@@ -385,17 +385,15 @@ texture = ExtResource("6_ryrav")
 [node name="Particles3" parent="ParticlesManager" instance=ExtResource("1_80nbo")]
 z_index = 1
 texture_filter = 1
-position = Vector2(521, 165)
-scale = Vector2(7, 7)
-amount = 17
+position = Vector2(733, 165)
+scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_ryrav")
 
 [node name="Particles" parent="ParticlesManager" instance=ExtResource("1_80nbo")]
 z_index = -1
 texture_filter = 1
-position = Vector2(198, 135)
-scale = Vector2(7, 7)
-amount = 17
+position = Vector2(-111, 163)
+scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_ryrav")
 
 [node name="Planets" type="Node2D" parent="."]
