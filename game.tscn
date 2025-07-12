@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bs17o8jabrqto" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://dlv8peo0eqtri" path="res://Sky.png" id="2_7jktm"]
 [ext_resource type="Theme" uid="uid://cb6cfuisv1qi8" path="res://Text_astro.tres" id="2_hve3p"]
+[ext_resource type="PackedScene" uid="uid://d1xxkxi4vla28" path="res://pamplets.tscn" id="2_rvswv"]
 [ext_resource type="Texture2D" uid="uid://d2wj13aym5ime" path="res://spaceman_2.png" id="3_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dtj0u25vb4cj5" path="res://star-Sheet.png" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://dwckgr4lepx1y" path="res://earth_slider.png" id="6_215e1"]
@@ -17,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://cmtgpd5p07oav" path="res://saturn.png" id="15_e8heu"]
 [ext_resource type="Texture2D" uid="uid://dcusmnmddgg1r" path="res://moon.png" id="16_rvswv"]
 [ext_resource type="Texture2D" uid="uid://bm4cs52sumrnt" path="res://neptune.png" id="17_boyg6"]
-[ext_resource type="Texture2D" uid="uid://d2h3bn0k8pbjo" path="res://pamplet2.png" id="18_rvswv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryrav"]
 atlas = ExtResource("5_7jktm")
@@ -26,77 +26,7 @@ region = Rect2(80, 32, 689.5, 13.75)
 [node name="game" type="Node2D"]
 script = ExtResource("1_e2o6t")
 
-[node name="Pamplets" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 640.0
-offset_bottom = 361.0
-
-[node name="TextureRect" type="TextureRect" parent="Pamplets"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.478
-anchor_right = 1.0
-anchor_bottom = 0.526
-offset_left = 0.0799866
-offset_top = 9.0
-offset_right = 3.0
-offset_bottom = 20.114
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("18_rvswv")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Pamplets/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 22.0
-offset_top = 26.0
-offset_right = -36.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Pamplets/TextureRect/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Pamplets/TextureRect/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("13_215e1")
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Pamplets/TextureRect/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 60)
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.0
-theme = ExtResource("2_hve3p")
-theme_override_constants/outline_size = 5
-bbcode_enabled = true
-text = "[color=#872b2a]MARS
-
-[color=#7456da]LOW PASS FILTER 
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Pamplets/TextureRect/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("2_hve3p")
-theme_override_constants/outline_size = 5
-bbcode_enabled = true
-text = "
-[color=#7456da] A low-pass filter allows low-frequency signals to pass through while blocking high-frequency ones. "
-horizontal_alignment = 1
+[node name="Pamplets" parent="." instance=ExtResource("2_rvswv")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -203,6 +133,14 @@ bbcode_enabled = true
 text = "[color=#7456da]Low Pass Filter
 "
 
+[node name="Description1" type="Button" parent="Control/Container_V_ Effects/Reverb_Text" groups=["pamplets_button"]]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = -240.0
+offset_top = 30.0
+offset_right = 256.0
+offset_bottom = 147.0
+
 [node name="sliderLifetime" type="HSlider" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(400, 75)
 layout_mode = 2
@@ -242,6 +180,14 @@ theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
 text = "[color=#7456da]Delay
 "
+
+[node name="Descripiton2" type="Button" parent="Control/Container_V_ Effects/Delay_Text" groups=["pamplets_button"]]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -237.0
+offset_top = 22.0
+offset_right = 252.0
+offset_bottom = 152.0
 
 [node name="sliderAmount" type="HSlider" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(400, 75)
@@ -283,6 +229,14 @@ bbcode_enabled = true
 text = "[color=#7456da]Speed
 "
 
+[node name="Description3" type="Button" parent="Control/Container_V_ Effects/?_Text" groups=["pamplets_button"]]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -240.0
+offset_top = 23.0
+offset_right = 259.0
+offset_bottom = 140.0
+
 [node name="sliderSpeed" type="HSlider" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(400, 75)
 layout_mode = 2
@@ -323,6 +277,14 @@ bbcode_enabled = true
 text = "[color=#7456da]Color
 "
 
+[node name="Desciption4" type="Button" parent="Control/Container_V_ Effects/??_Text" groups=["pamplets_button"]]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -246.0
+offset_top = 28.0
+offset_right = 268.0
+offset_bottom = 133.0
+
 [node name="sliderColor" type="HSlider" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(400, 75)
 layout_mode = 2
@@ -362,6 +324,14 @@ theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
 text = "[color=#7456da]Effetto
 "
+
+[node name="Desciption5" type="Button" parent="Control/Container_V_ Effects/??_Text2" groups=["pamplets_button"]]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -237.0
+offset_top = 23.0
+offset_right = 259.0
+offset_bottom = 140.0
 
 [node name="sliderRadialSpeed" type="HSlider" parent="Control/Container_V_ Effects"]
 custom_minimum_size = Vector2(400, 75)
@@ -447,10 +417,13 @@ texture = ExtResource("16_rvswv")
 position = Vector2(203, 278)
 texture = ExtResource("17_boyg6")
 
+[connection signal="mouse_entered" from="Control/Container_V_ Effects/Reverb_Text/Description1" to="." method="_on_description_1_mouse_entered"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderLifetime" to="." method="_on_slider_lifetime_value_changed"]
+[connection signal="mouse_entered" from="Control/Container_V_ Effects/Delay_Text/Descripiton2" to="." method="_on_descripiton_2_mouse_entered"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderAmount" to="." method="_on_slider_amount_value_changed"]
-[connection signal="mouse_entered" from="Control/Container_V_ Effects/sliderSpeed" to="." method="_on_slider_speed_mouse_entered"]
-[connection signal="mouse_exited" from="Control/Container_V_ Effects/sliderSpeed" to="." method="_on_slider_speed_mouse_exited"]
+[connection signal="mouse_entered" from="Control/Container_V_ Effects/?_Text/Description3" to="." method="_on_description_3_mouse_entered"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderSpeed" to="." method="_on_slider_speed_value_changed"]
+[connection signal="mouse_entered" from="Control/Container_V_ Effects/??_Text/Desciption4" to="." method="_on_desciption_4_mouse_entered"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderColor" to="." method="_on_slider_color_value_changed"]
+[connection signal="mouse_entered" from="Control/Container_V_ Effects/??_Text2/Desciption5" to="." method="_on_desciption_5_mouse_entered"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderRadialSpeed" to="." method="_on_slider_radial_speed_value_changed"]

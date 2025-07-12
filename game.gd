@@ -57,6 +57,12 @@ func _ready() -> void:
 	audio_main.finished.connect(func():
 		audio_main.play()
 	)
+	
+	# connect buttons to fade out
+	for node in get_tree().get_nodes_in_group("pamplets_button"): # This gets all nodes, then filter
+		if node is Button:
+			node.mouse_exited.connect(pamplets.fade_out)
+
 
 
 func _on_slider_speed_value_changed(value: float) -> void:
@@ -173,9 +179,84 @@ func audio_filter_value_changed(value: float) -> void:
 
 ###### POP UP PAMPLETS
 
-# speed slider
-func _on_slider_speed_mouse_entered() -> void:
-	pamplets.visible = true
-func _on_slider_speed_mouse_exited() -> void:
-	pamplets.visible = false 
+## speed slider
+#func _on_slider_speed_mouse_entered() -> void:
+	#pamplets.visible = true
+#func _on_slider_speed_mouse_exited() -> void:
+	#pamplets.visible = false 
 	
+
+
+func _on_description_1_mouse_entered() -> void:
+	var texture : Texture2D = preload("res://moon.png")
+	
+	var plant_text = "[color=#872b2a]MOON"
+	var title_text = "[color=#7456da]SOMETHING"
+	
+	# Use the variables
+	var title : String  = plant_text + "\n\n" + title_text
+	
+	
+	var description : String = "\n[color=#7456da]Something"
+	pamplets.focus(texture, title, description)
+	
+
+	
+
+
+func _on_descripiton_2_mouse_entered() -> void:
+	var texture : Texture2D = preload("res://jupiter.png")
+	
+	var plant_text = "[color=#872b2a]SATURN"
+	var title_text = "[color=#7456da]SOMETHING"
+	
+	# Use the variables
+	var title : String  = plant_text + "\n\n" + title_text
+	
+	
+	var description : String = "\n[color=#7456da]Something"
+	pamplets.focus(texture, title, description)
+	
+	
+
+
+func _on_description_3_mouse_entered() -> void:
+	var texture : Texture2D = preload("res://mars.png")
+	
+	var plant_text = "[color=#872b2a]MARS"
+	var title_text = "[color=#7456da]LOW PASS FILTER"
+	
+	# Use the variables
+	var title : String = plant_text +"\n\n" + title_text
+	
+	
+	var description : String = "\n[color=#7456da]A low-pass filter allows low-frequency signals to pass through while blocking high-frequency ones. "
+	pamplets.focus(texture, title, description)
+
+
+func _on_desciption_4_mouse_entered() -> void:
+	var texture : Texture2D = preload("res://saturn.png")
+	
+	var plant_text = "[color=#872b2a]JUPITER"
+	var title_text = "[color=#7456da]SOMETHING"
+	
+	# Use the variables
+	var title : String  = plant_text + "\n\n" + title_text
+	
+	
+	var description : String = "\n[color=#7456da]Something"
+	pamplets.focus(texture, title, description)
+
+
+func _on_desciption_5_mouse_entered() -> void:
+	var texture : Texture2D = preload("res://neptune.png")
+	
+	var plant_text = "[color=#872b2a]NEPTUNE"
+	var title_text = "[color=#7456da]SOMETHING"
+	
+	# Use the variables
+	var title : String  = plant_text + "\n\n" + title_text
+	
+	
+	var description : String = "\n[color=#7456da]Something"
+	pamplets.focus(texture, title, description)
