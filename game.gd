@@ -1,5 +1,7 @@
 extends Node2D
 @onready var audio_main: AudioStreamPlayer2D = $Audio_Main
+@onready var slider_speed: HSlider = $"Control/Container_V_ Effects/sliderSpeed"
+@onready var pamplets: Control = $Pamplets
 
 # Your defined constants for particles (remains unchanged)
 const MIN_PARTICLES : int = 8
@@ -138,3 +140,19 @@ func audio_filter_value_changed(value: float) -> void:
 			var new_cutoff_frequency = remap(value, min_slider_val, max_slider_val, min_cutoff_freq, max_cutoff_freq)
 
 			filter_effect.cutoff_hz = clampf(new_cutoff_frequency, min_cutoff_freq, max_cutoff_freq)
+
+
+
+
+
+
+
+
+###### POP UP PAMPLETS
+
+# speed slider
+func _on_slider_speed_mouse_entered() -> void:
+	pamplets.visible = true
+func _on_slider_speed_mouse_exited() -> void:
+	pamplets.visible = false 
+	

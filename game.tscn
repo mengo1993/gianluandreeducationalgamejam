@@ -27,6 +27,7 @@ region = Rect2(80, 32, 689.5, 13.75)
 script = ExtResource("1_e2o6t")
 
 [node name="Pamplets" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0
@@ -446,6 +447,8 @@ texture = ExtResource("17_boyg6")
 
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderLifetime" to="." method="_on_slider_lifetime_value_changed"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderAmount" to="." method="_on_slider_amount_value_changed"]
+[connection signal="mouse_entered" from="Control/Container_V_ Effects/sliderSpeed" to="." method="_on_slider_speed_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Container_V_ Effects/sliderSpeed" to="." method="_on_slider_speed_mouse_exited"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderSpeed" to="." method="_on_slider_speed_value_changed"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderColor" to="." method="_on_slider_color_value_changed"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderColor2" to="." method="_on_slider_color_value_changed"]
