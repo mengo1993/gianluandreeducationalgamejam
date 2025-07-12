@@ -4,13 +4,13 @@ extends Node2D
 @onready var pamplets: Control = $Pamplets
 
 # Your defined constants for particles (remains unchanged)
-const MIN_PARTICLES : int = 8
-const MAX_PARTICLES : int = 100
-const MIN_LIFETIME : float = 2.0
-const MAX_LIFETIME : float = 8.0
-const MIN_SPEED : float = 1.0
-const MAX_START_SPEED : float = 10.0
-const MAX_SPEED : float = 200.0
+const MIN_PARTICLES : int = 5
+const MAX_PARTICLES : int = 50
+const MIN_LIFETIME : float = 0.5
+const MAX_LIFETIME : float = 4.0
+const MIN_SPEED : float = 0.5
+const MAX_START_SPEED : float = 1
+const MAX_SPEED : float = 400.0
 const MAX_RADIAL_SPEED : float = 10.0
 
 # Constants for Hue Variation Range (using -1.0 to 1.0 as the full range)
@@ -90,20 +90,23 @@ func _on_slider_radial_speed_value_changed(value: float) -> void:
 	edit_particles_radial_speed(value)
 	# audio
 
+
+
 ##### PARTICLES
-func edit_particles_speed(value : float) -> void:
-	var clamped_value : float = clamp(value, MIN_SPEED, MAX_SPEED)
+func edit_particles_speed(value: float) -> void:
+	var t : float = clamp(value / 100.0, 0.0, 1.0)
+	var speed : float = lerp(MIN_SPEED, MAX_SPEED, t)
 
 	var particles1 := $ParticlesManager/Particles as GPUParticles2D
 	var particles2 := $ParticlesManager/Particles3 as GPUParticles2D
 
 	if particles1 and particles1.process_material is ParticleProcessMaterial:
 		var material1 := particles1.process_material as ParticleProcessMaterial
-		material1.initial_velocity_max = clamped_value
+		material1.initial_velocity_max = speed
 
 	if particles2 and particles2.process_material is ParticleProcessMaterial:
 		var material2 := particles2.process_material as ParticleProcessMaterial
-		material2.initial_velocity_min = -clamped_value
+		material2.initial_velocity_min = -speed
 		material2.initial_velocity_max = -MIN_SPEED
 
 
@@ -122,12 +125,18 @@ func edit_particles_radial_speed(value: float) -> void:
 		material2.radial_velocity_max = radial_speed
 
 func edit_particles_amount(value: float) -> void:
-	$ParticlesManager/Particles.amount = clamp(int(value), MIN_PARTICLES, MAX_PARTICLES)
-	$ParticlesManager/Particles3.amount = clamp(int(value), MIN_PARTICLES, MAX_PARTICLES)
+	var t : float = clamp(value / 100.0, 0.0, 1.0)
+	var amount := int(lerp(MIN_PARTICLES, MAX_PARTICLES, t))
+
+	$ParticlesManager/Particles.amount = amount
+	$ParticlesManager/Particles3.amount = amount
 	
 func edit_particles_lifetime(value: float) -> void:
-	$ParticlesManager/Particles.lifetime = clamp(value, MIN_LIFETIME, MAX_LIFETIME)
-	$ParticlesManager/Particles3.lifetime = clamp(value, MIN_LIFETIME, MAX_LIFETIME)
+	var t : float = clamp(value / 100.0, 0.0, 1.0)
+	var lifetime : float = lerp(MIN_LIFETIME, MAX_LIFETIME, t)
+
+	$ParticlesManager/Particles.lifetime = lifetime
+	$ParticlesManager/Particles3.lifetime = lifetime
 
 func edit_particles_hue(value: float) -> void:
 		# Assuming your "color" slider also goes from 0.0 to 100.0
