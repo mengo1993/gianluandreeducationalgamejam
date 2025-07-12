@@ -6,7 +6,7 @@ extends Node2D
 # Your defined constants for particles (remains unchanged)
 const MIN_PARTICLES : int = 5
 const MAX_PARTICLES : int = 50
-const MIN_LIFETIME : float = 0.5
+const MIN_LIFETIME : float = 1.0
 const MAX_LIFETIME : float = 4.0
 const MIN_SPEED : float = 0.5
 const MAX_START_SPEED : float = 1

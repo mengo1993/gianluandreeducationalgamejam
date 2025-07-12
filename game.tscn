@@ -355,14 +355,14 @@ texture = ExtResource("6_ryrav")
 [node name="Particles3" parent="ParticlesManager" instance=ExtResource("1_80nbo")]
 z_index = 1
 texture_filter = 1
-position = Vector2(733, 165)
+position = Vector2(893, 164)
 scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_ryrav")
 
 [node name="Particles" parent="ParticlesManager" instance=ExtResource("1_80nbo")]
 z_index = -1
 texture_filter = 1
-position = Vector2(-111, 163)
+position = Vector2(-233, 157)
 scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_ryrav")
 
