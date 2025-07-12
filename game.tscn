@@ -53,14 +53,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.2222
-offset_top = 26.6667
-offset_right = -35.7778
-offset_bottom = -8.33333
+offset_left = 22.0
+offset_top = 26.0
+offset_right = -36.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pamplets/TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Pamplets/TextureRect/VBoxContainer/HBoxContainer"]
@@ -69,10 +70,10 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("13_215e1")
-expand_mode = 1
+stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pamplets/TextureRect/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
@@ -80,7 +81,10 @@ size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_hve3p")
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
-text = "[color=#7456da]LOW PASS - MARS"
+text = "[color=#872b2a]MARS
+
+[color=#7456da]LOW PASS FILTER 
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
