@@ -67,27 +67,30 @@ func _ready() -> void:
 
 func _on_slider_speed_value_changed(value: float) -> void:
 	edit_particles_speed(value)
-	audio_filter_value_changed(value)
+	audio_delay_value_changed(value)
+	#audio_filter_value_changed(value)
 
 
 
 func _on_slider_amount_value_changed(value: float) -> void:
 	edit_particles_amount(value)
-	# audio function
+	audio_filter_value_changed(value)
 
 
 func _on_slider_lifetime_value_changed(value: float) -> void:
 	edit_particles_lifetime(value)
+	audio_reverb_value_changed(value)
 	# audio function
 
 
 # --- Slider for Hue Variation ---
 func _on_slider_color_value_changed(value: float) -> void:
 	edit_particles_hue(value)
-	# audio function
+	audio_pitchShift_value_changed(value)
 	
 func _on_slider_radial_speed_value_changed(value: float) -> void:
 	edit_particles_radial_speed(value)
+	audio_distortion_value_changed(value)
 	# audio
 
 
@@ -179,8 +182,53 @@ func audio_filter_value_changed(value: float) -> void:
 
 			filter_effect.cutoff_hz = clampf(new_cutoff_frequency, min_cutoff_freq, max_cutoff_freq)
 
+func audio_distortion_value_changed(value: float) -> void:
+	var master_bus_idx = AudioServer.get_bus_index("Master")
+
+	if master_bus_idx != -1:
+		# Assuming the Distortion effect is at index 1 on the Master bus.
+		# You might need to adjust this index based on your Audio Bus layout.
+		var distortion_effect = AudioServer.get_bus_effect(master_bus_idx, 1) as AudioEffectDistortion
+
+		if distortion_effect:
+			var min_slider_val = 0.0
+			var max_slider_val = 100.0
+
+			# Define the range for the distortion's drive property
+			# The 'drive' property typically ranges from 0.0 to 1.0,
+			# but you can adjust these values to suit your desired effect.
+			var min_distortion_drive = 0.0
+			var max_distortion_drive = 0.4
+
+			# Remap the slider value to the desired distortion drive range
+			var new_drive_value = remap(value, min_slider_val, max_slider_val, min_distortion_drive, max_distortion_drive)
+
+			# Clamp the value to ensure it stays within the valid range for the drive property
+			distortion_effect.drive = clampf(new_drive_value, min_distortion_drive, max_distortion_drive)
 
 
+func audio_delay_value_changed(value: float) -> void:
+	var master_bus_idx = AudioServer.get_bus_index("Master")
+
+	if master_bus_idx != -1:
+		# Assuming the Delay effect is at index 2 on the Master bus.
+		# You might need to adjust this index based on your Audio Bus layout.
+		var delay_effect = AudioServer.get_bus_effect(master_bus_idx, 2) as AudioEffectDelay
+
+		if delay_effect:
+			var min_slider_val = 0.0
+			var max_slider_val = 100.0
+
+			# Define the range for the delay's dry property
+			# The 'dry' property typically ranges from 0.0 (no dry signal) to 1.0 (full dry signal).
+			var min_delay_dry = 0.0
+			var max_delay_dry = 1.0
+
+			# Remap the slider value to the desired delay dry range
+			var new_dry_value = remap(value, min_slider_val, max_slider_val, min_delay_dry, max_delay_dry)
+
+			# Clamp the value to ensure it stays within the valid range for the dry property
+			delay_effect.dry = clampf(new_dry_value, min_delay_dry, max_delay_dry)
 
 
 
@@ -194,7 +242,28 @@ func audio_filter_value_changed(value: float) -> void:
 #func _on_slider_speed_mouse_exited() -> void:
 	#pamplets.visible = false 
 	
+func audio_reverb_value_changed(value: float) -> void:
+	var master_bus_idx = AudioServer.get_bus_index("Master")
 
+	if master_bus_idx != -1:
+		# Assuming the Reverb effect is at index 3 on the Master bus.
+		# You might need to adjust this index based on your Audio Bus layout.
+		var reverb_effect = AudioServer.get_bus_effect(master_bus_idx, 3) as AudioEffectReverb
+
+		if reverb_effect:
+			var min_slider_val = 0.0
+			var max_slider_val = 100.0
+
+			# Define the range for the reverb's wet property
+			# The 'wet' property typically ranges from 0.0 (no wet signal) to 1.0 (full wet signal).
+			var min_reverb_wet = 0.0 # As requested, starting from 0.0
+			var max_reverb_wet = 1.0
+
+			# Remap the slider value to the desired reverb wet range
+			var new_wet_value = remap(value, min_slider_val, max_slider_val, min_reverb_wet, max_reverb_wet)
+
+			# Clamp the value to ensure it stays within the valid range for the wet property
+			reverb_effect.wet = clampf(new_wet_value, min_reverb_wet, max_reverb_wet)
 
 func _on_description_1_mouse_entered() -> void:
 	var texture : Texture2D = preload("res://moon.png")
@@ -209,6 +278,29 @@ func _on_description_1_mouse_entered() -> void:
 	var description : String = "\n[color=#7456da]Something"
 	pamplets.focus(texture, title, description)
 	
+func audio_pitchShift_value_changed(value: float) -> void:
+	var master_bus_idx = AudioServer.get_bus_index("Master")
+
+	if master_bus_idx != -1:
+		# Assuming the PitchShift effect is at index 4 on the Master bus.
+		# You might need to adjust this index based on your Audio Bus layout.
+		var pitch_shift_effect = AudioServer.get_bus_effect(master_bus_idx, 4) as AudioEffectPitchShift
+
+		if pitch_shift_effect:
+			var min_slider_val = 0.0
+			var max_slider_val = 100.0
+
+			# Define the range for the pitch shift's pitch_scale property.
+			# A common range is from 0.5 (lower pitch) to 2.0 (higher pitch),
+			# with 1.0 being the original pitch.
+			var min_pitch_scale = 0.5
+			var max_pitch_scale = 1
+
+			# Remap the slider value to the desired pitch_scale range
+			var new_pitch_scale_value = remap(100 - value, min_slider_val, max_slider_val, min_pitch_scale, max_pitch_scale)
+
+			# Clamp the value to ensure it stays within the valid range for the pitch_scale property
+			pitch_shift_effect.pitch_scale = clampf(new_pitch_scale_value, min_pitch_scale, max_pitch_scale)
 
 	
 
