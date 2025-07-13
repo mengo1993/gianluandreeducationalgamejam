@@ -4,12 +4,12 @@ extends Node2D
 @onready var pamplets: Control = $Pamplets
 
 # Your defined constants for particles (remains unchanged)
-const MIN_PARTICLES : int = 5
+const MIN_PARTICLES : int = 17
 const MAX_PARTICLES : int = 50
-const MIN_LIFETIME : float = 1.0
-const MAX_LIFETIME : float = 4.0
-const MIN_SPEED : float = 0.5
-const MAX_START_SPEED : float = 1
+const MIN_LIFETIME : float = 2.5
+const MAX_LIFETIME : float = 5.0
+const MIN_SPEED : float = 10.0
+const MAX_START_SPEED : float = 15.0
 const MAX_SPEED : float = 400.0
 const MAX_RADIAL_SPEED : float = 10.0
 

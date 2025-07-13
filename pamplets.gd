@@ -3,9 +3,12 @@ extends Control
 var _is_mouse_over: bool = false
 var _pending_focus_id: int = 0
 
-const DURATION_OF_FADE : float = 0.4
+const DURATION_OF_FADE : float = 0.2
 const TIME_BETWEEN_SHOWING : float = 0.2
 const TIME_BEFORE_FADE_OUT : float = 0.2
+
+func _ready() -> void:
+	modulate.a = 0.0
 
 func focus(texture: Texture2D, title: String, description: String) -> void:
 	# Start tracking a unique focus attempt
