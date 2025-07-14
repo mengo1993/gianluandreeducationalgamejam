@@ -5,18 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://dlv8peo0eqtri" path="res://Sky.png" id="2_7jktm"]
 [ext_resource type="Theme" uid="uid://cb6cfuisv1qi8" path="res://Text_astro.tres" id="2_hve3p"]
 [ext_resource type="PackedScene" uid="uid://d1xxkxi4vla28" path="res://pamplets.tscn" id="2_rvswv"]
-[ext_resource type="Texture2D" uid="uid://d2wj13aym5ime" path="res://spaceman_2.png" id="3_lc2xo"]
+[ext_resource type="Texture2D" uid="uid://b3puf3jejvaro" path="res://spaceman_2.png" id="3_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://dtj0u25vb4cj5" path="res://star-Sheet.png" id="5_7jktm"]
-[ext_resource type="Texture2D" uid="uid://dwckgr4lepx1y" path="res://earth_slider.png" id="6_215e1"]
+[ext_resource type="Texture2D" uid="uid://cjgdhww3ehfd4" path="res://earth_slider.png" id="6_215e1"]
 [ext_resource type="Theme" uid="uid://tdokecx2vxsu" path="res://theme_effects.tres" id="6_mfdv2"]
 [ext_resource type="FontFile" uid="uid://dcgp7s2bj44md" path="res://Minecraft.ttf" id="6_vef74"]
 [ext_resource type="Theme" uid="uid://5bojobj2xa28" path="res://Slider_theme.tres" id="7_mfdv2"]
-[ext_resource type="Texture2D" uid="uid://cfydkfxui673d" path="res://jupiter.png" id="9_7sc4i"]
+[ext_resource type="Texture2D" uid="uid://ugw3xa6sq1nu" path="res://jupiter.png" id="9_7sc4i"]
 [ext_resource type="AudioStream" uid="uid://bbu52caa8ogh4" path="res://Jam_loop_1.wav" id="9_vef74"]
-[ext_resource type="Texture2D" uid="uid://n7crt831k17p" path="res://mars.png" id="13_215e1"]
-[ext_resource type="Texture2D" uid="uid://cmtgpd5p07oav" path="res://saturn.png" id="15_e8heu"]
-[ext_resource type="Texture2D" uid="uid://dcusmnmddgg1r" path="res://moon.png" id="16_rvswv"]
-[ext_resource type="Texture2D" uid="uid://bm4cs52sumrnt" path="res://neptune.png" id="17_boyg6"]
+[ext_resource type="Texture2D" uid="uid://cpweqp1nauskj" path="res://mars.png" id="13_215e1"]
+[ext_resource type="Texture2D" uid="uid://bfb6gnb87t0cu" path="res://saturn.png" id="15_e8heu"]
+[ext_resource type="Texture2D" uid="uid://jmhv8ii7ncn5" path="res://moon.png" id="16_rvswv"]
+[ext_resource type="Texture2D" uid="uid://d2488rvosqpt5" path="res://neptune.png" id="17_boyg6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryrav"]
 atlas = ExtResource("5_7jktm")
@@ -108,29 +108,28 @@ texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = -233.24
+offset_left = -128.135
 offset_top = 18.015
-offset_right = 327.76
+offset_right = 432.865
 offset_bottom = 88.015
 theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#9d6e4a]Low Pass Filter"
+text = "[color=#9d6e4a]Reverb"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/Reverb_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = -228.228
+offset_left = -123.123
 offset_top = 15.015
-offset_right = 348.772
+offset_right = 453.877
 offset_bottom = 85.015
 theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#7456da]Low Pass Filter
-"
+text = "[color=#7456da]Reverb"
 
 [node name="Description1" type="Button" parent="Control/Container_V_ Effects/Reverb_Text" groups=["pamplets_button"]]
 self_modulate = Color(1, 1, 1, 0)
@@ -156,28 +155,28 @@ texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = -92.099
-offset_top = 33.03
-offset_right = 343.901
-offset_bottom = 103.03
+offset_left = -236.937
+offset_top = 31.1862
+offset_right = 288.063
+offset_bottom = 101.186
 theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#9d6e4a]Delay"
+text = "[color=#9d6e4a]Low Pass Filter"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/Delay_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = -87.087
-offset_top = 30.1291
-offset_right = 348.913
-offset_bottom = 100.129
+offset_left = -231.937
+offset_top = 28.1862
+offset_right = 291.063
+offset_bottom = 98.1862
 theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#7456da]Delay
+text = "[color=#7456da]Low Pass Filter
 "
 
 [node name="Descripiton2" type="Button" parent="Control/Container_V_ Effects/Delay_Text" groups=["pamplets_button"]]
@@ -204,29 +203,28 @@ texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = -101.108
+offset_left = -89.096
 offset_top = 30.027
-offset_right = 334.892
+offset_right = 346.904
 offset_bottom = 100.027
 theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#9d6e4a]Speed"
+text = "[color=#9d6e4a]Delay"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/?_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = -96.0961
+offset_left = -84.0841
 offset_top = 27.2253
-offset_right = 339.904
+offset_right = 351.916
 offset_bottom = 97.2253
 theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#7456da]Speed
-"
+text = "[color=#7456da]Delay"
 
 [node name="Description3" type="Button" parent="Control/Container_V_ Effects/?_Text" groups=["pamplets_button"]]
 self_modulate = Color(1, 1, 1, 0)
@@ -252,28 +250,28 @@ texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = -86.093
+offset_left = -167.174
 offset_top = 33.03
-offset_right = 349.907
+offset_right = 268.826
 offset_bottom = 103.03
 theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#9d6e4a]Color"
+text = "[color=#9d6e4a]Pitch Shift"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/??_Text"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = -81.0811
+offset_left = -162.162
 offset_top = 30.3273
-offset_right = 354.919
+offset_right = 273.838
 offset_bottom = 100.327
 theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#7456da]Color
+text = "[color=#7456da]Pitch Shift
 "
 
 [node name="Desciption4" type="Button" parent="Control/Container_V_ Effects/??_Text" groups=["pamplets_button"]]
@@ -300,28 +298,28 @@ texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = -128.135
+offset_left = -146.153
 offset_top = 27.0241
-offset_right = 307.865
+offset_right = 289.847
 offset_bottom = 97.0241
 theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#9d6e4a]Effetto"
+text = "[color=#9d6e4a]Distortion"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Container_V_ Effects/??_Text2"]
 texture_filter = 1
 texture_repeat = 1
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 0
-offset_left = -123.123
+offset_left = -141.141
 offset_top = 24.3214
-offset_right = 312.877
+offset_right = 294.859
 offset_bottom = 94.3214
 theme = ExtResource("6_mfdv2")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "[color=#7456da]Effetto
+text = "[color=#7456da]Distortion 
 "
 
 [node name="Desciption5" type="Button" parent="Control/Container_V_ Effects/??_Text2" groups=["pamplets_button"]]

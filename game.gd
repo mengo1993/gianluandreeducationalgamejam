@@ -266,19 +266,6 @@ func audio_reverb_value_changed(value: float) -> void:
 			# Clamp the value to ensure it stays within the valid range for the wet property
 			reverb_effect.wet = clampf(new_wet_value, min_reverb_wet, max_reverb_wet)
 
-func _on_description_1_mouse_entered() -> void:
-	var texture : Texture2D = preload("res://moon.png")
-	
-	var plant_text = "[color=#872b2a]MOON"
-	var title_text = "[color=#7456da]SOMETHING"
-	
-	# Use the variables
-	var title : String  = plant_text + "\n\n" + title_text
-	
-	
-	var description : String = "\n[color=#7456da]Something"
-	pamplets.focus(texture, title, description)
-	
 func audio_pitchShift_value_changed(value: float) -> void:
 	var master_bus_idx = AudioServer.get_bus_index("Master")
 
@@ -305,60 +292,71 @@ func audio_pitchShift_value_changed(value: float) -> void:
 
 	
 
-
-func _on_descripiton_2_mouse_entered() -> void:
-	var texture : Texture2D = preload("res://jupiter.png")
+func _on_description_1_mouse_entered() -> void:
+	var texture : Texture2D = preload("res://moon.png")
 	
-	var plant_text = "[color=#872b2a]SATURN"
-	var title_text = "[color=#7456da]SOMETHING"
+	var plant_text = "[color=#c0ad56]MOON"
+	var title_text = "[color=#7456da]REVERB"
 	
 	# Use the variables
 	var title : String  = plant_text + "\n\n" + title_text
 	
 	
-	var description : String = "\n[color=#7456da]Something"
+	var description : String = "\n[color=#7456da]A reverb simulates the effect of sound bouncing off various surfaces in an environment, adding sound tails that gradually fade away. "
 	pamplets.focus(texture, title, description)
-	
+
 	
 
+func _on_descripiton_2_mouse_entered() -> void:
+	var texture : Texture2D = preload("res://jupiter.png")
+	
+	var plant_text = "[color=#1fbdbb]SATURN"
+	var title_text = "[color=#7456da]LOW PASS FILTER"
+	
+	# Use the variables
+	var title : String  = plant_text + "\n\n" + title_text
+	
+	
+	var description : String = "\n[color=#7456da]A low-pass filter allows low-frequency signals to pass through while blocking high-frequency ones."
+	pamplets.focus(texture, title, description)
 
 func _on_description_3_mouse_entered() -> void:
 	var texture : Texture2D = preload("res://mars.png")
 	
 	var plant_text = "[color=#872b2a]MARS"
-	var title_text = "[color=#7456da]LOW PASS FILTER"
+	var title_text = "[color=#7456da]DELAY"
 	
 	# Use the variables
 	var title : String = plant_text +"\n\n" + title_text
 	
 	
-	var description : String = "\n[color=#7456da]A low-pass filter allows low-frequency signals to pass through while blocking high-frequency ones. "
+	var description : String = "\n[color=#7456da]A delay repeats an audio signal after a short time interval, creating one or more distinct echoes of the original sound. "
 	pamplets.focus(texture, title, description)
+
 
 
 func _on_desciption_4_mouse_entered() -> void:
 	var texture : Texture2D = preload("res://saturn.png")
 	
-	var plant_text = "[color=#872b2a]JUPITER"
-	var title_text = "[color=#7456da]SOMETHING"
+	var plant_text = "[color=#bc852f]JUPITER"
+	var title_text = "[color=#7456da]PITCH SHIFT"
 	
 	# Use the variables
 	var title : String  = plant_text + "\n\n" + title_text
 	
 	
-	var description : String = "\n[color=#7456da]Something"
+	var description : String = "\n[color=#7456da]A pitch shift alters the perceived highness or lowness of a sound without changing its playback speed or duration."
 	pamplets.focus(texture, title, description)
-
 
 func _on_desciption_5_mouse_entered() -> void:
 	var texture : Texture2D = preload("res://neptune.png")
 	
-	var plant_text = "[color=#872b2a]NEPTUNE"
-	var title_text = "[color=#7456da]SOMETHING"
+	var plant_text = "[color=#73b6f5]NEPTUNE"
+	var title_text = "[color=#7456da]DISTORTION"
 	
 	# Use the variables
 	var title : String  = plant_text + "\n\n" + title_text
 	
 	
-	var description : String = "\n[color=#7456da]Something"
+	var description : String = "\n[color=#7456da]A distortion effect intentionally alters the waveform of an audio signal, typically resulting in a rough, harsh, or gritty sound by clipping its peaks."
 	pamplets.focus(texture, title, description)
