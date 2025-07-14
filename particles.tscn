@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1nekjdd22fr"]
+[gd_scene load_steps=8 format=3 uid="uid://b1nekjdd22fr"]
 
 [ext_resource type="Texture2D" uid="uid://dtj0u25vb4cj5" path="res://star-Sheet.png" id="1_xnif8"]
 
@@ -6,17 +6,36 @@
 atlas = ExtResource("1_xnif8")
 region = Rect2(80, 32, 682.5, 16)
 
+[sub_resource type="Curve" id="Curve_xnif8"]
+_data = [Vector2(0, 0.988764), 0.0, 0.0, 0, 0, Vector2(1, 0.157303), -2.67416, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1nvrg"]
+curve = SubResource("Curve_xnif8")
+
+[sub_resource type="Curve" id="Curve_i1ypt"]
+_data = [Vector2(0, 0.820225), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s4h77"]
+curve = SubResource("Curve_i1ypt")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
 particle_flag_disable_z = true
-spread = 180.0
-initial_velocity_min = 50.0
-initial_velocity_max = 50.0
-gravity = Vector3(0, 0, 0)
-scale_max = 2.58
+angle_min = 58.4
+angle_max = 122.7
+direction = Vector3(50, 0, 0)
+spread = 5.0
+gravity = Vector3(0, -2, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_s4h77")
+scale_over_velocity_max = 20.0
+alpha_curve = SubResource("CurveTexture_1nvrg")
 hue_variation_min = 0.2
 hue_variation_max = 0.2
 
 [node name="particles" type="GPUParticles2D"]
 texture = SubResource("AtlasTexture_1nvrg")
-explosiveness = 1.0
+lifetime = 2.0
+randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_d8etm")

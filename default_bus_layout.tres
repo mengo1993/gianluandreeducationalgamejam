@@ -4,13 +4,34 @@
 resource_name = "LowPassFilter"
 cutoff_hz = 10000.0
 resonance = 1.0
-db = 1
+db = 2
 
 [sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
 resource_name = "Distortion"
 
-[resource]
-bus/0/effect/0/effect = SubResource("AudioEffectLowPassFilter_j3pel")
-bus/0/effect/0/enabled = true
-bus/0/effect/1/effect = SubResource("AudioEffectDistortion_j3pel")
-bus/0/effect/1/enabled = true
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_j3pel"]
+resource_name = "Delay"
+tap1_delay_ms = 1122.0
+tap1_level_db = -60.0
+tap1_pan = 1.0
+tap2_delay_ms = 1016.0
+tap2_level_db = -60.0
+tap2_pan = -1.0
+feedback_active = true
+feedback_delay_ms = 1128.0
+feedback_level_db = -60.0
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+predelay_msec = 165.0
+predelay_feedback = 0.53
+room_size = 0.5
+damping = 0.16
+wet = 0.0
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_j3pel"]
+resource_name = "PitchShift"
+fft_size = 2
+
+
