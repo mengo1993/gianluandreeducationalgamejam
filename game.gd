@@ -89,7 +89,7 @@ func _on_slider_color_value_changed(value: float) -> void:
 	audio_pitchShift_value_changed(value)
 	
 func _on_slider_radial_speed_value_changed(value: float) -> void:
-	edit_particles_radial_speed(value)
+	edit_particles_spread(value)
 	audio_distortion_value_changed(value)
 	# audio
 
@@ -113,19 +113,20 @@ func edit_particles_speed(value: float) -> void:
 		material2.initial_velocity_max = -MIN_SPEED
 
 
-func edit_particles_radial_speed(value: float) -> void:
-	var radial_speed : float = lerp(0.0, MAX_RADIAL_SPEED, value)
+func edit_particles_spread(value: float) -> void:
+	
+	var spread : float = lerp(5.0, 120.0, value)
 
 	var particles1 := $ParticlesManager/Particles as GPUParticles2D
 	var particles2 := $ParticlesManager/Particles3 as GPUParticles2D
 
 	if particles1 and particles1.process_material is ParticleProcessMaterial:
 		var material1 := particles1.process_material as ParticleProcessMaterial
-		material1.radial_velocity_max = radial_speed
+		material1.spread = spread
 
 	if particles2 and particles2.process_material is ParticleProcessMaterial:
 		var material2 := particles2.process_material as ParticleProcessMaterial
-		material2.radial_velocity_max = radial_speed
+		material2.spread = spread
 
 func edit_particles_amount(value: float) -> void:
 	var t : float = clamp(value / 100.0, 0.0, 1.0)
