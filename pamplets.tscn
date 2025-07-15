@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1xxkxi4vla28"]
 
-[ext_resource type="Texture2D" uid="uid://5haqr8m5qctg" path="res://pamplet2.png" id="1_gwfp3"]
+[ext_resource type="Texture2D" uid="uid://d2h3bn0k8pbjo" path="res://pamplet2.png" id="1_gwfp3"]
 [ext_resource type="Script" uid="uid://bs2onoa1rsulc" path="res://pamplets.gd" id="1_t6lhf"]
-[ext_resource type="Texture2D" uid="uid://cpweqp1nauskj" path="res://mars.png" id="2_t6lhf"]
+[ext_resource type="Texture2D" uid="uid://n7crt831k17p" path="res://mars.png" id="2_t6lhf"]
 [ext_resource type="Theme" uid="uid://cb6cfuisv1qi8" path="res://Text_astro.tres" id="3_blmvg"]
 
 [node name="Pamplets" type="Control"]

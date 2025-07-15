@@ -212,24 +212,45 @@ func audio_delay_value_changed(value: float) -> void:
 	var master_bus_idx = AudioServer.get_bus_index("Master")
 
 	if master_bus_idx != -1:
-		# Assuming the Delay effect is at index 2 on the Master bus.
-		# You might need to adjust this index based on your Audio Bus layout.
 		var delay_effect = AudioServer.get_bus_effect(master_bus_idx, 2) as AudioEffectDelay
 
 		if delay_effect:
 			var min_slider_val = 0.0
 			var max_slider_val = 100.0
 
-			# Define the range for the delay's dry property
-			# The 'dry' property typically ranges from 0.0 (no dry signal) to 1.0 (full dry signal).
-			var min_delay_dry = 0.0
-			var max_delay_dry = 1.0
+			# Map the slider value to an "effect intensity" from 0.0 to 1.0
+			var effect_intensity = remap(value, min_slider_val, max_slider_val, 0.0, 1.0)
+			effect_intensity = clampf(effect_intensity, 0.0, 1.0)
 
-			# Remap the slider value to the desired delay dry range
-			var new_dry_value = remap(value, min_slider_val, max_slider_val, min_delay_dry, max_delay_dry)
+			# --- Control the DRY signal (original sound) ---
+			# At min slider (0.0 intensity), dry is 1.0 (full original sound).
+			# As intensity increases, dry can slightly decrease if you want.
+			# For "no effect at min," setting dry to 1.0 always is simplest.
+			delay_effect.dry = 1.0 # Always keep original sound at full volume
 
-			# Clamp the value to ensure it stays within the valid range for the dry property
-			delay_effect.dry = clampf(new_dry_value, min_delay_dry, max_delay_dry)
+			# --- Control the WET signal (delayed sound) via tap levels and feedback ---
+			# The level_db properties are in decibels.
+			# -60 dB is effectively silent, 0 dB is original volume.
+			# Let's map 0% effect to a very low dB (e.g., -60 dB) and 100% effect to 0 dB or -3 dB.
+
+			var min_tap_level_db = -60.0 # Effectively silent for delay taps
+			var max_tap_level_db = 0.0   # Max delay tap volume (can be adjusted, e.g., -3.0 for slightly less prominent delay)
+
+			# Remap effect_intensity to the dB range for tap levels
+			var new_tap_level_db = remap(effect_intensity, 0.0, 1.0, min_tap_level_db, max_tap_level_db)
+			
+			# Apply to tap1_level_db and tap2_level_db (assuming they are active)
+			delay_effect.tap1_level_db = new_tap_level_db
+			delay_effect.tap2_level_db = new_tap_level_db
+			
+			# You might also want to control feedback level in a similar way
+			# For example, let feedback only kick in when the effect is on
+			var min_feedback_level_db = -60.0
+			var max_feedback_level_db = -6.0 # Common default feedback level for delays
+			delay_effect.feedback_level_db = remap(effect_intensity, 0.0, 1.0, min_feedback_level_db, max_feedback_level_db)
+
+			# Ensure feedback is active if you're controlling its level
+			delay_effect.feedback_active = (effect_intensity > 0.001) # Activate feedback if intensity is above a tiny threshold
 
 
 
