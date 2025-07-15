@@ -47,6 +47,7 @@ func _ready() -> void:
 			material2.hue_variation_min = MIN_HUE_VARIATION
 			material2.hue_variation_max = MIN_HUE_VARIATION
 			particles2.process_material = material2
+			
 
 		
 
@@ -141,6 +142,32 @@ func edit_particles_lifetime(value: float) -> void:
 
 	$ParticlesManager/Particles.lifetime = lifetime
 	$ParticlesManager/Particles3.lifetime = lifetime
+	
+		# --- Tangential Acceleration Calculation ---
+	# Clamp the input value to be between 0.0 and 1.0 (normalized)
+	var t_tangential : float = clamp(value / 100.0, 0.0, 1.0)
+
+	# Define constants for min and max tangential acceleration
+	# User requested max 70, min 0.
+	const MIN_TANGENTIAL_ACCEL = 0.0
+	const MAX_TANGENTIAL_ACCEL = 90.0
+
+	# Linearly interpolate the tangential acceleration based on the normalized slider value
+	var tangential_accel_value : float = lerp(MIN_TANGENTIAL_ACCEL, MAX_TANGENTIAL_ACCEL, t_tangential)
+
+	# Apply the calculated tangential acceleration to the particle systems
+	# These properties are typically found in CPUParticles2D/3D or in the Process Material of GPUParticles2D/3D.
+	# For CPUParticles2D/3D, it's a direct property.
+	# For GPUParticles2D/3D using a ParticleProcessMaterial, you would access it via the material.
+	# Example for CPUParticles2D/3D:
+	$ParticlesManager/Particles.process_material.tangential_accel_max = tangential_accel_value
+	$ParticlesManager/Particles3.process_material.tangential_accel_max = tangential_accel_value
+	# If you are using GPUParticles2D/3D with a ParticleProcessMaterial, you would do something like:
+	# var particles_material = $ParticlesManager/Particles.process_material as ParticleProcessMaterial
+	# if particles_material:
+	# 	particles_material.tangential_accel_min = tangential_accel_value
+	# 	particles_material.tangential_accel_max = tangential_accel_value # Often min and max are set to the same value for a fixed accel
+
 
 func edit_particles_hue(value: float) -> void:
 		# Assuming your "color" slider also goes from 0.0 to 100.0
@@ -285,7 +312,7 @@ func audio_reverb_value_changed(value: float) -> void:
 	if master_bus_idx != -1:
 		# Assuming the Reverb effect is at index 3 on the Master bus.
 		# You might need to adjust this index based on your Audio Bus layout.
-		var reverb_effect = AudioServer.get_bus_effect(master_bus_idx, 3) as AudioEffectReverb
+		var reverb_effect = AudioServer.get_bus_effect(master_bus_idx, 4) as AudioEffectReverb
 
 		if reverb_effect:
 			var min_slider_val = 0.0
@@ -302,13 +329,14 @@ func audio_reverb_value_changed(value: float) -> void:
 			# Clamp the value to ensure it stays within the valid range for the wet property
 			reverb_effect.wet = clampf(new_wet_value, min_reverb_wet, max_reverb_wet)
 
+
 func audio_pitchShift_value_changed(value: float) -> void:
 	var master_bus_idx = AudioServer.get_bus_index("Master")
 
 	if master_bus_idx != -1:
 		# Assuming the PitchShift effect is at index 4 on the Master bus.
 		# You might need to adjust this index based on your Audio Bus layout.
-		var pitch_shift_effect = AudioServer.get_bus_effect(master_bus_idx, 4) as AudioEffectPitchShift
+		var pitch_shift_effect = AudioServer.get_bus_effect(master_bus_idx, 3) as AudioEffectPitchShift
 
 		if pitch_shift_effect:
 			var min_slider_val = 0.0
@@ -317,7 +345,7 @@ func audio_pitchShift_value_changed(value: float) -> void:
 			# Define the range for the pitch shift's pitch_scale property.
 			# A common range is from 0.5 (lower pitch) to 2.0 (higher pitch),
 			# with 1.0 being the original pitch.
-			var min_pitch_scale = 0.5
+			var min_pitch_scale = 0.9
 			var max_pitch_scale = 1
 
 			# Remap the slider value to the desired pitch_scale range
