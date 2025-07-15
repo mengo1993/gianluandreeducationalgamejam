@@ -360,3 +360,22 @@ func _on_desciption_5_mouse_entered() -> void:
 	
 	var description : String = "\n[color=#7456da]A distortion effect intentionally alters the waveform of an audio signal, typically resulting in a rough, harsh, or gritty sound by clipping its peaks."
 	pamplets.focus(texture, title, description)
+
+
+func _on_button_pressed() -> void:
+	if audio_main.playing == true:
+		audio_main.playing = false
+	else:
+		audio_main.playing = true
+
+
+func _on_button_2_pressed() -> void:
+	var musica_1 = preload("res://Jam_loop_1.wav")
+	audio_main.stream = musica_1
+	audio_main.play()
+
+
+func _on_button_3_pressed() -> void:
+	var musica_2 = preload("res://jam_loop_2.wav")
+	audio_main.stream = musica_2
+	audio_main.play()

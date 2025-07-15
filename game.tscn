@@ -92,9 +92,9 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 26.0
-offset_top = 57.0
+offset_top = 47.0
 offset_right = 627.0
-offset_bottom = -93.0
+offset_bottom = -103.0
 grow_vertical = 2
 scale = Vector2(0.333, 0.333)
 
@@ -359,6 +359,7 @@ texture = SubResource("AtlasTexture_ryrav")
 position = Vector2(0, 27)
 
 [node name="Earth_group" type="CanvasGroup" parent="Planets"]
+position = Vector2(0, -10)
 
 [node name="Earth" type="Sprite2D" parent="Planets/Earth_group"]
 position = Vector2(52, 69)
@@ -381,6 +382,7 @@ position = Vector2(52, 279)
 texture = ExtResource("6_215e1")
 
 [node name="Other_planets" type="CanvasGroup" parent="Planets"]
+position = Vector2(0, -10)
 
 [node name="Mars" type="Sprite2D" parent="Planets/Other_planets"]
 position = Vector2(203, 173)
@@ -406,6 +408,32 @@ texture = ExtResource("16_rvswv")
 position = Vector2(203, 278)
 texture = ExtResource("17_boyg6")
 
+[node name="Audio_controls" type="HBoxContainer" parent="."]
+offset_left = 3.0
+offset_top = 332.0
+offset_right = 155.0
+offset_bottom = 372.0
+
+[node name="Button" type="Button" parent="Audio_controls"]
+layout_mode = 2
+theme = ExtResource("2_hve3p")
+text = "MUTE"
+flat = true
+
+[node name="Button2" type="Button" parent="Audio_controls"]
+layout_mode = 2
+theme = ExtResource("2_hve3p")
+text = "1
+"
+flat = true
+
+[node name="Button3" type="Button" parent="Audio_controls"]
+layout_mode = 2
+theme = ExtResource("2_hve3p")
+text = "2
+"
+flat = true
+
 [connection signal="mouse_entered" from="Control/Container_V_ Effects/Reverb_Text/Description1" to="." method="_on_description_1_mouse_entered"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderLifetime" to="." method="_on_slider_lifetime_value_changed"]
 [connection signal="mouse_entered" from="Control/Container_V_ Effects/Delay_Text/Descripiton2" to="." method="_on_descripiton_2_mouse_entered"]
@@ -416,3 +444,6 @@ texture = ExtResource("17_boyg6")
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderColor" to="." method="_on_slider_color_value_changed"]
 [connection signal="mouse_entered" from="Control/Container_V_ Effects/??_Text2/Desciption5" to="." method="_on_desciption_5_mouse_entered"]
 [connection signal="value_changed" from="Control/Container_V_ Effects/sliderRadialSpeed" to="." method="_on_slider_radial_speed_value_changed"]
+[connection signal="pressed" from="Audio_controls/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Audio_controls/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Audio_controls/Button3" to="." method="_on_button_3_pressed"]
