@@ -176,12 +176,27 @@ func audio_filter_value_changed(value: float) -> void:
 			var min_slider_val = 0.0
 			var max_slider_val = 100.0
 
-			var min_cutoff_freq = 200.0
-			var max_cutoff_freq = 10000.0
+			# For "no effect" (slider min), cutoff should be very high.
+			# For "more effect" (slider max), cutoff moves lower.
+			var min_cutoff_freq = 200.0   # Lower end of the range (more filtering)
+			var max_cutoff_freq = 20000.0 # Higher end of the range (less filtering / "no effect")
 
-			var new_cutoff_frequency = remap(value, min_slider_val, max_slider_val, min_cutoff_freq, max_cutoff_freq)
+			# Remap the slider value:
+			# When slider is 0, value becomes max_cutoff_freq (less filtering).
+			# When slider is 100, value becomes min_cutoff_freq (more filtering).
+			var new_cutoff_frequency = remap(value, min_slider_val, max_slider_val, max_cutoff_freq, min_cutoff_freq)
 
-			filter_effect.cutoff_hz = clampf(new_cutoff_frequency, min_cutoff_freq, max_cutoff_freq)
+			# Clamp the value to ensure it stays within the valid frequency range (20 Hz to 20000 Hz)
+			new_cutoff_frequency = clampf(new_cutoff_frequency, 20.0, 20000.0)
+
+			filter_effect.cutoff_hz = new_cutoff_frequency
+
+			# Q (resonance) usually stays constant or can also be mapped
+			# A Q of 1.0 is often a good default, higher Q values create a sharper peak/dip at the cutoff.
+			# filter_effect.resonance = 1.0
+
+			# Gain (for band-pass, notch, peaking filters) is not typically used for simple LPF/HPF cutoff
+			# filter_effect.gain = 0.0 # dB, leave at 0 for LPF/HPF unless you specifically want to boost/cut at the cutoff
 
 func audio_distortion_value_changed(value: float) -> void:
 	var master_bus_idx = AudioServer.get_bus_index("Master")
