@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://dcgp7s2bj44md" path="res://Minecraft.ttf" id="1_st186"]
 
 [resource]
+Button/fonts/font = ExtResource("1_st186")
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/outline_size = 5
 RichTextLabel/fonts/normal_font = ExtResource("1_st186")

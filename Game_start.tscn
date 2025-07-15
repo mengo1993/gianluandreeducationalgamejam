@@ -1,0 +1,205 @@
+[gd_scene load_steps=8 format=3 uid="uid://bygbxllnrssnm"]
+
+[ext_resource type="Script" uid="uid://0ebtolardxn8" path="res://game_start.gd" id="1_15ftd"]
+[ext_resource type="Texture2D" uid="uid://cv6s2pk1ahqiu" path="res://sfondo intro.png" id="1_iyj5e"]
+[ext_resource type="Theme" uid="uid://tdokecx2vxsu" path="res://theme_effects.tres" id="3_qwd2l"]
+[ext_resource type="Theme" uid="uid://cb6cfuisv1qi8" path="res://Text_astro.tres" id="4_hefae"]
+[ext_resource type="Texture2D" uid="uid://cjgdhww3ehfd4" path="res://earth_slider.png" id="5_3aw14"]
+[ext_resource type="Texture2D" uid="uid://d2488rvosqpt5" path="res://neptune.png" id="6_l8egb"]
+[ext_resource type="Texture2D" uid="uid://bwownv8u53hmx" path="res://pamplet.png" id="7_15ftd"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_15ftd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_iyj5e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = 5.0
+offset_right = -95.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+
+[node name="Container" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Container"]
+layout_mode = 2
+offset_left = 2.33333
+offset_top = -64.0
+offset_right = 167.333
+offset_bottom = -2.0
+size_flags_vertical = 3
+theme = ExtResource("3_qwd2l")
+bbcode_enabled = true
+text = " [color=#9d6e4a]
+      C   NNECTING 
+ W   RLDS"
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/Container"]
+layout_mode = 2
+offset_left = 4.33333
+offset_top = -47.0
+offset_right = 164.333
+offset_bottom = -7.0
+size_flags_vertical = 3
+theme = ExtResource("3_qwd2l")
+bbcode_enabled = true
+text = " [color=#7456da]     C   NNECTING 
+ W   RLDS"
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+offset_left = 43.0
+offset_top = 170.0
+offset_right = 449.0
+offset_bottom = 204.0
+theme = ExtResource("4_hefae")
+theme_override_font_sizes/normal_font_size = 15
+text = "Music visualization by ImolaJammers
+For the best experience, please use headphones."
+
+[node name="Terra" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 199.0
+offset_top = 54.0
+offset_right = -399.0
+offset_bottom = -263.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_3aw14")
+
+[node name="Terra2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 123.0
+offset_top = 103.0
+offset_right = -475.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_l8egb")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.029
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 102.0
+offset_top = 219.56
+offset_right = -47.0
+offset_bottom = -85.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("7_15ftd")
+expand_mode = 1
+
+[node name="Label" type="RichTextLabel" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 2.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_hefae")
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.029
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 102.0
+offset_top = 267.56
+offset_right = -47.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("7_15ftd")
+expand_mode = 1
+
+[node name="Label2" type="RichTextLabel" parent="TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 2.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_hefae")
+text = "QUIT
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 426.0
+offset_top = 280.0
+offset_right = 590.0
+offset_bottom = 322.0
+
+[node name="Button2" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 426.0
+offset_top = 232.0
+offset_right = 590.0
+offset_bottom = 274.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
