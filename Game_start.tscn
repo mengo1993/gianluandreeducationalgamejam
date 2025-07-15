@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bygbxllnrssnm"]
+[gd_scene load_steps=9 format=3 uid="uid://bygbxllnrssnm"]
 
 [ext_resource type="Script" uid="uid://0ebtolardxn8" path="res://game_start.gd" id="1_15ftd"]
 [ext_resource type="Texture2D" uid="uid://cv6s2pk1ahqiu" path="res://sfondo intro.png" id="1_iyj5e"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cjgdhww3ehfd4" path="res://earth_slider.png" id="5_3aw14"]
 [ext_resource type="Texture2D" uid="uid://d2488rvosqpt5" path="res://neptune.png" id="6_l8egb"]
 [ext_resource type="Texture2D" uid="uid://bwownv8u53hmx" path="res://pamplet.png" id="7_15ftd"]
+[ext_resource type="AudioStream" uid="uid://di7hd8cpqphhe" path="res://Audio_intro.wav" id="8_qwd2l"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -199,7 +200,9 @@ offset_top = 232.0
 offset_right = 590.0
 offset_bottom = 274.0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Audio_intro" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_qwd2l")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
